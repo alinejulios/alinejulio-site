@@ -1,0 +1,41 @@
+---
+interface Props {
+  composition?: 'A' | 'B';
+  position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  className?: string;
+}
+
+const {
+  composition = 'B',
+  position = 'top-right',
+  className = '',
+} = Astro.props;
+
+// Positions
+const positionClasses = {
+  'top-right': 'top-0 right-0',
+  'top-left': 'top-0 left-0',
+  'bottom-right': 'bottom-0 right-0',
+  'bottom-left': 'bottom-0 left-0',
+};
+---
+
+<div class={`absolute ${positionClasses[position]} pointer-events-none select-none z-0 overflow-hidden w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 ${className}`} aria-hidden="true">
+  {composition === 'A' ? (
+    /* Composição A: Fragmento (#C9C9C9) + Triângulo Diagonal (#2C2C2C ou #E32227) */
+    <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Fragmento curvo sangrando para fora */}
+      <path d="M70 0 C70 80 130 140 200 140 L200 0 Z" fill="#C9C9C9" opacity="0.85" />
+      {/* Triângulo diagonal em preto da marca */}
+      <polygon points="110,0 200,90 200,0" fill="#2C2C2C" />
+    </svg>
+  ) : (
+    /* Composição B: Círculo (#E32227) + Fragmento (#C9C9C9) */
+    <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Fragmento em cinza claro */}
+      <path d="M50 0 C50 90 120 160 200 160 L200 0 Z" fill="#C9C9C9" opacity="0.8" />
+      {/* Círculo vermelho sangrando no canto */}
+      <circle cx="160" cy="40" r="65" fill="#E32227" />
+    </svg>
+  )}
+</div>

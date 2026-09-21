@@ -1,0 +1,47 @@
+---
+interface Props {
+  canonicalUrl?: string;
+}
+
+const {
+  canonicalUrl = 'https://alinejulio.com'
+} = Astro.props;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${canonicalUrl}#person`,
+  'name': 'Aline Julio',
+  'alternateName': ['Aline Júlio'],
+  'url': canonicalUrl,
+  'image': `${canonicalUrl}/images/aline-julio-logo.png`,
+  'jobTitle': 'CRO Specialist, Gestora de Conteúdo e Content Designer',
+  'description': 'Especialista em Otimização de Taxa de Conversão (CRO), Gestão Estratégica de Conteúdo e SEO On-Page com mais de 7 anos de experiência, unindo dados, metas de conversão e branding digital.',
+  'sameAs': [
+    'https://www.linkedin.com/in/alinejulio',
+  ],
+  'knowsAbout': [
+    'Conversion Rate Optimization (CRO)',
+    'Gestão de Conteúdo',
+    'Branding Digital',
+    'Content Design',
+    'SEO On-Page',
+    'SEO Semântico',
+    'Testes A/B',
+    'Arquitetura de Informação',
+    'Análise de Dados e KPIs de Conversão'
+  ],
+  'hasOccupation': {
+    '@type': 'Occupation',
+    'name': 'CRO Specialist & Gestora de Conteúdo',
+    'description': 'Otimização de taxas de conversão e gestão de conteúdo orientada a KPIs e branding digital.',
+    'skills': 'CRO, Gestão de Conteúdo, Branding Digital, UX Writing, On-Page SEO, Testes A/B, Arquitetura de Informação'
+  },
+  'address': {
+    '@type': 'PostalAddress',
+    'addressCountry': 'BR'
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

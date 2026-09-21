@@ -1,0 +1,55 @@
+---
+interface Props {
+  quote?: string;
+  author?: string;
+  role?: string;
+  variant?: 'light' | 'dark' | 'red';
+  className?: string;
+}
+
+const {
+  quote = 'Conteúdo autêntico não é sobre soar perfeito — é sobre soar como você.',
+  author = 'Aline Julio',
+  role = 'CRO Specialist & UX Writer',
+  variant = 'light',
+  className = '',
+} = Astro.props;
+
+const styles = {
+  light: {
+    bg: 'bg-white border-l-4 border-brand-red',
+    quoteColor: 'text-brand-red',
+    textColor: 'text-brand-black',
+    authorColor: 'text-brand-gray-700',
+  },
+  dark: {
+    bg: 'bg-brand-black border-l-4 border-brand-red',
+    quoteColor: 'text-brand-red',
+    textColor: 'text-white',
+    authorColor: 'text-brand-gray-300',
+  },
+  red: {
+    bg: 'bg-brand-red text-white',
+    quoteColor: 'text-white/40',
+    textColor: 'text-white',
+    authorColor: 'text-white/90',
+  },
+};
+
+const currentStyle = styles[variant];
+---
+
+<figure class={`relative p-6 md:p-8 rounded-r-2xl shadow-sm ${currentStyle.bg} ${className}`}>
+  {/* Aspas - Motivo de Assinatura da marca (vetor oficial) */}
+  <svg class={`w-8 h-7 md:w-10 md:h-8 mb-3 ${currentStyle.quoteColor}`} viewBox="0.034 -0.742 0.43 0.34" fill="currentColor" aria-hidden="true">
+    <path d="M0.218,-0.742L0.152,-0.502L0.13,-0.592C0.159,-0.592 0.182,-0.584 0.2,-0.567C0.218,-0.55 0.227,-0.527 0.227,-0.498C0.227,-0.469 0.218,-0.446 0.2,-0.429C0.181,-0.411 0.158,-0.402 0.131,-0.402C0.103,-0.402 0.08,-0.411 0.062,-0.429C0.043,-0.446 0.034,-0.469 0.034,-0.498C0.034,-0.507 0.035,-0.515 0.036,-0.524C0.037,-0.532 0.04,-0.542 0.044,-0.553C0.048,-0.564 0.054,-0.579 0.061,-0.598L0.119,-0.742L0.218,-0.742ZM0.454,-0.742L0.388,-0.502L0.366,-0.592C0.395,-0.592 0.418,-0.584 0.436,-0.567C0.454,-0.55 0.463,-0.527 0.463,-0.498C0.463,-0.469 0.454,-0.446 0.436,-0.429C0.417,-0.411 0.394,-0.402 0.367,-0.402C0.339,-0.402 0.316,-0.411 0.298,-0.429C0.279,-0.446 0.27,-0.469 0.27,-0.498C0.27,-0.507 0.271,-0.515 0.272,-0.524C0.273,-0.532 0.276,-0.542 0.28,-0.553C0.284,-0.564 0.29,-0.579 0.297,-0.598L0.355,-0.742L0.454,-0.742Z"/>
+  </svg>
+  <blockquote class={`text-lg md:text-xl font-medium leading-relaxed italic ${currentStyle.textColor}`}>
+    {quote}
+  </blockquote>
+  {(author || role) && (
+    <figcaption class={`mt-4 pt-4 border-t border-brand-gray-300/30 text-xs tracking-wider uppercase font-semibold ${currentStyle.authorColor}`}>
+      {author} {role && <span class="font-normal opacity-80">· {role}</span>}
+    </figcaption>
+  )}
+</figure>

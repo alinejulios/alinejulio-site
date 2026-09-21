@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GeometricCorners from '../components/GeometricCorners.astro';
+import SpeechQuote from '../components/SpeechQuote.astro';
+import PhosphorIcon from '../components/PhosphorIcon.astro';
+import { palestras } from '../data/palestras';
+
+const palestrasDestaque = palestras.filter(p => p.destaque).slice(0, 3);
+---
+
+<BaseLayout
+  title="Aline Julio | CRO Specialist, UX Writer e Content Designer"
+  description="Aline Julio é especialista em CRO, UX Writing e Conteúdo Estratégico com mais de 7 anos de experiência, unindo dados, usabilidade e SEO On-Page."
+>
+  <!-- HERO SECTION (Fundo Branco Gelo + Composição Geométrica de Canto) -->
+  <section class="relative bg-brand-ice pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-brand-gray-300/40">
+    <GeometricCorners composition="B" position="top-right" />
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <!-- Tagline / Linha de Assinatura -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white border border-brand-gray-300/60 shadow-sm mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-black">
+            CRO Specialist · Gestora de Conteúdo · Content Designer
+          </span>
+        </div>
+
+        <!-- Título Principal (Montserrat Extra-Bold) -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-black tracking-tight leading-[1.1] mb-6">
+          Onde dados, usabilidade e gestão de conteúdo se unem para <span class="text-brand-red">gerar resultados</span>
+        </h1>
+
+        <!-- Descrição Direta (Tom Conversacional e Analítico do Guia) -->
+        <p class="text-lg sm:text-xl text-brand-gray-700 leading-relaxed mb-8">
+          Mais de 7 anos de experiência unindo <strong>análise de dados</strong>, <strong>SEO On-Page</strong> e <strong>gestão de conteúdo</strong>. Atuação em projetos B2B e B2C, além de palestras e mentorias em UX Writing, SEO Semântico e Estratégia de Conteúdo com foco em KPIs.
+        </p>
+
+        <!-- Botões de Ação (CTAs) -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a
+            href="https://www.linkedin.com/in/alinejulio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 bg-brand-red hover:bg-[#c8191e] text-white font-bold text-sm uppercase tracking-wider px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition-all"
+          >
+            <PhosphorIcon name="linkedin" size={20} color="white" />
+            <span>Conectar no LinkedIn</span>
+            <PhosphorIcon name="arrow-up-right" size={16} color="white" />
+          </a>
+
+          <a
+            href="/palestras"
+            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-brand-black text-brand-black hover:text-white border-2 border-brand-black font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all"
+          >
+            <span>Ver Palestras & Aulas</span>
+            <PhosphorIcon name="arrow-right" size={16} color="black" className="group-hover:text-white" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: PERSONALIDADE DA MARCA (Conforme Guia de Identidade Visual - Página 2) -->
+  <section class="py-16 md:py-24 bg-white border-b border-brand-gray-300/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <span class="text-xs uppercase tracking-widest font-black text-brand-red">Posicionamento</span>
+        <h2 class="text-3xl font-black text-brand-black tracking-tight mt-1">
+          Como eu tomo decisões e trabalho
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Analítica -->
+        <div class="p-6 rounded-2xl bg-brand-ice border border-brand-gray-300/40 hover:border-brand-red/40 transition-colors">
+          <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-4">
+            <PhosphorIcon name="cro-dados" size={24} color="red" />
+          </div>
+          <h3 class="text-lg font-bold text-brand-black mb-2">Analítica</h3>
+          <p class="text-sm text-brand-gray-700 leading-relaxed">
+            Decide com base em dados de navegação, comportamento do usuário e testes A/B, não em achismo.
+          </p>
+        </div>
+
+        <!-- Autêntica -->
+        <div class="p-6 rounded-2xl bg-brand-ice border border-brand-gray-300/40 hover:border-brand-red/40 transition-colors">
+          <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-4">
+            <PhosphorIcon name="voz-autentica" size={24} color="red" />
+          </div>
+          <h3 class="text-lg font-bold text-brand-black mb-2">Autêntica</h3>
+          <p class="text-sm text-brand-gray-700 leading-relaxed">
+            Fala com voz própria. Elimina fórmulas genéricas de marketing para construir autoridade real.
+          </p>
+        </div>
+
+        <!-- Direta -->
+        <div class="p-6 rounded-2xl bg-brand-ice border border-brand-gray-300/40 hover:border-brand-red/40 transition-colors">
+          <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-4">
+            <PhosphorIcon name="redacao" size={24} color="red" />
+          </div>
+          <h3 class="text-lg font-bold text-brand-black mb-2">Direta</h3>
+          <p class="text-sm text-brand-gray-700 leading-relaxed">
+            Comunica com clareza e objetividade técnica. Sem rodeios ou jargões vazios.
+          </p>
+        </div>
+
+        <!-- Estratégica -->
+        <div class="p-6 rounded-2xl bg-brand-ice border border-brand-gray-300/40 hover:border-brand-red/40 transition-colors">
+          <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-4">
+            <PhosphorIcon name="conversao" size={24} color="red" />
+          </div>
+          <h3 class="text-lg font-bold text-brand-black mb-2">Estratégica</h3>
+          <p class="text-sm text-brand-gray-700 leading-relaxed">
+            Une visão de negócios ao domínio técnico em UX, SEO On-Page e Otimização de Conversão.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: AS DUAS FRENTES DE ATUAÇÃO (Guia Página 2 e 4) -->
+  <section class="py-16 md:py-24 bg-brand-ice border-b border-brand-gray-300/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs uppercase tracking-widest font-black text-brand-red">Atuação</span>
+        <h2 class="text-3xl font-black text-brand-black tracking-tight mt-1">
+          Duas frentes complementares — uma só voz por trás
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Frente 1: CRO & Dados -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-gray-300/50 flex flex-col justify-between">
+          <div>
+            <div class="inline-block px-3 py-1 bg-brand-ice text-xs font-bold text-brand-black rounded mb-4">
+              Assinatura: CRO | UX | Content
+            </div>
+            <h3 class="text-2xl font-black text-brand-black mb-4">
+              Consultoria Estratégica em Dados, UX e Conversão
+            </h3>
+            <p class="text-brand-gray-700 text-sm leading-relaxed mb-6">
+              Diagnóstico detalhado de pontos de atrito na jornada do usuário, arquitetura de informação e formulação de hipóteses de testes para elevar métricas de negócio.
+            </p>
+            <ul class="space-y-3 text-sm text-brand-gray-700">
+              <li class="flex items-center gap-2">
+                <PhosphorIcon name="check-circle" size={18} color="red" />
+                <span>Otimização de Taxa de Conversão (CRO)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <PhosphorIcon name="check-circle" size={18} color="red" />
+                <span>UX Writing e clareza de microcopy</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <PhosphorIcon name="check-circle" size={18} color="red" />
+                <span>SEO On-Page & Semântico estruturado para entidades</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-6 border-t border-brand-gray-300/40">
+            <a
+              href="https://www.linkedin.com/in/alinejulio"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-brand-red hover:text-brand-black transition-colors"
+            >
+              <span>Conversar sobre consultoria</span>
+              <PhosphorIcon name="arrow-right" size={14} color="red" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Frente 2: Conteúdo Autêntico e Educação -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-gray-300/50 flex flex-col justify-between">
+          <div>
+            <div class="inline-block px-3 py-1 bg-brand-ice text-xs font-bold text-brand-black rounded mb-4">
+              Assinatura: conteúdo autêntico
+            </div>
+            <h3 class="text-2xl font-black text-brand-black mb-4">
+              Gestão de Conteúdo, Branding Digital & Educação
+            </h3>
+            <p class="text-brand-gray-700 text-sm leading-relaxed mb-6">
+              Estratégia de produção, governança editorial e acompanhamento de KPIs de conversão por tráfego orgânico, além de posicionamento de marca autêntico e compartilhamento em docência e palestras.
+            </p>
+            <ul class="space-y-3 text-sm text-brand-gray-700">
+              <li class="flex items-center gap-2">
+                <PhosphorIcon name="check-circle" size={18} color="red" />
+                <span>Estratégia de produção e acompanhamento de metas em conversão orgânica</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <PhosphorIcon name="check-circle" size={18} color="red" />
+                <span>Posicionamento de marca e branding digital com voz autêntica</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <PhosphorIcon name="check-circle" size={18} color="red" />
+                <span>Docência e palestras em eventos de marketing, dados e tecnologia</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-6 border-t border-brand-gray-300/40">
+            <a
+              href="/palestras"
+              class="inline-flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-brand-red hover:text-brand-black transition-colors"
+            >
+              <span>Explorar histórico de palestras</span>
+              <PhosphorIcon name="arrow-right" size={14} color="red" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4: CITAÇÃO DE ASSINATURA -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SpeechQuote
+        quote="Conteúdo autêntico não é sobre soar perfeito — é sobre soar como você."
+        author="Aline Julio"
+        role="CRO Specialist & Gestora de Conteúdo"
+        variant="light"
+      />
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5: PALESTRAS EM DESTAQUE (Alimentador da Entidade Google) -->
+  <section class="py-16 md:py-24 bg-brand-ice border-t border-b border-brand-gray-300/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-widest font-black text-brand-red">Docência & Eventos</span>
+          <h2 class="text-3xl font-black text-brand-black tracking-tight mt-1">
+            Aulas e Palestras Recentes
+          </h2>
+        </div>
+        <a
+          href="/palestras"
+          class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-brand-red hover:text-brand-black transition-colors"
+        >
+          <span>Ver todas as participações</span>
+          <PhosphorIcon name="arrow-right" size={16} color="red" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {palestrasDestaque.map((item) => (
+          <article class="bg-white p-6 rounded-2xl shadow-sm border border-brand-gray-300/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-brand-gray-700 mb-3">
+                <span class="font-bold text-brand-red uppercase">{item.tipo}</span>
+                <span>{item.data}</span>
+              </div>
+              <h3 class="text-lg font-bold text-brand-black mb-2 leading-snug">
+                {item.titulo}
+              </h3>
+              <p class="text-xs text-brand-gray-700 mb-4 font-medium">
+                {item.eventoOuInstituicao}
+              </p>
+              <p class="text-xs text-brand-gray-500 line-clamp-3 leading-relaxed">
+                {item.descricao}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-gray-300/30">
+              <span class="inline-block px-2.5 py-1 bg-brand-ice text-brand-black text-[11px] font-semibold rounded">
+                {item.tema}
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 6: CTA VERMELHO CHAPADO (Guia Página 8 e 11: Vermelho para encerramento e chamada para ação) -->
+  <section class="relative bg-brand-red text-white py-16 md:py-20 overflow-hidden">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-4">
+        Vamos falar sobre dados, conversão e conteúdo?
+      </h2>
+      <p class="text-white/90 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+        Acompanhe minhas análises e reflexões técnicas no LinkedIn ou entre em contato para convites de palestras, aulas e consultoria.
+      </p>
+      <a
+        href="https://www.linkedin.com/in/alinejulio"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-3 bg-white text-brand-black hover:bg-brand-black hover:text-white font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg transition-all duration-200"
+      >
+        <PhosphorIcon name="linkedin" size={20} color="black" className="group-hover:text-white" />
+        <span>Acompanhar no LinkedIn</span>
+        <PhosphorIcon name="arrow-up-right" size={16} color="black" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

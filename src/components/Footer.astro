@@ -1,0 +1,70 @@
+---
+import Logo from './Logo.astro';
+import PhosphorIcon from './PhosphorIcon.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-brand-black text-white pt-16 pb-12 border-t-4 border-brand-red">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-brand-gray-700">
+      
+      <!-- Coluna 1: Marca e Posicionamento -->
+      <div class="md:col-span-6 space-y-4">
+        <Logo variant="dark" subtitle="CRO | UX | Content" size="md" />
+        <p class="text-brand-gray-300 text-sm max-w-md leading-relaxed pt-2">
+          CRO Specialist, Gestora de Conteúdo e Content Designer. Otimização de conversão, dados e estratégia de conteúdo para marcas e produtos com propósito.
+        </p>
+        <p class="text-xs text-brand-gray-500 italic">
+          “Conteúdo autêntico não é sobre soar perfeito — é sobre soar como você.”
+        </p>
+      </div>
+
+      <!-- Coluna 2: Navegação Rápida -->
+      <div class="md:col-span-3 space-y-3">
+        <span class="block text-xs uppercase tracking-widest font-bold text-brand-red">Navegação</span>
+        <ul class="space-y-2 text-sm text-brand-gray-300">
+          <li>
+            <a href="/" class="hover:text-white transition-colors">Início</a>
+          </li>
+          <li>
+            <a href="/sobre" class="hover:text-white transition-colors">Sobre Aline Julio</a>
+          </li>
+          <li>
+            <a href="/palestras" class="hover:text-white transition-colors">Palestras & Aulas</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Conexões e Presença -->
+      <div class="md:col-span-3 space-y-3">
+        <span class="block text-xs uppercase tracking-widest font-bold text-brand-red">Conexões</span>
+        <div class="space-y-3">
+          <a
+            href="https://www.linkedin.com/in/alinejulio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-sm text-brand-gray-300 hover:text-white transition-colors group"
+          >
+            <PhosphorIcon name="linkedin" size={18} color="white" />
+            <span>Perfil no LinkedIn</span>
+            <PhosphorIcon name="arrow-up-right" size={14} color="gray" className="group-hover:text-white transition-colors" />
+          </a>
+          <p class="text-xs text-brand-gray-500">
+            Aulas, palestras, mentorias e consultoria estratégica em CRO e gestão de conteúdo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha Inferior com Identificação Corporativa Legal -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-gray-500 gap-4">
+      <p>
+        Aline Julio – CNPJ 66.479.970/0001-20
+      </p>
+      <p>
+        &copy; {currentYear} Aline Julio. Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

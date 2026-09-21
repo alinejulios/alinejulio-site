@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GeometricCorners from '../components/GeometricCorners.astro';
+import SpeechQuote from '../components/SpeechQuote.astro';
+import PhosphorIcon from '../components/PhosphorIcon.astro';
+---
+
+<BaseLayout
+  title="Sobre Mim | Aline Julio - CRO Specialist & Gestora de Conteúdo"
+  description="Conheça a trajetória de mais de 7 anos de Aline Julio em gestão de conteúdo, SEO On-Page e CRO, atuando em projetos B2B/B2C e como professora e mentora."
+>
+  <!-- CABEÇALHO DA PÁGINA (Fundo Branco Gelo + Elemento Geométrico) -->
+  <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">
+    <GeometricCorners composition="A" position="top-right" />
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-brand-gray-300/60 shadow-sm mb-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Trajetória Profissional</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight mb-6">
+        Quem é a <span class="text-brand-red">Aline Julio</span>
+      </h1>
+
+      <p class="text-xl text-brand-gray-700 leading-relaxed font-medium">
+        CRO Specialist, Gestora de Conteúdo e Content Designer — uma atuação que une análise de dados, usabilidade e estratégia orientada a metas de conversão e branding.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL (Fundo Branco para alta leiturabilidade, Guia pág. 8) -->
+  <section class="py-16 md:py-20 bg-white border-b border-brand-gray-300/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Biografia Estruturada -->
+      <div class="prose prose-lg max-w-none text-brand-gray-700 leading-relaxed space-y-6">
+        <p class="text-lg leading-relaxed">
+          Com mais de <strong>7 anos de experiência</strong> sólida em gestão de conteúdo e SEO On-Page, minha carreira se desenvolveu a partir de uma constatação prática: <strong>atrair tráfego qualificado é apenas metade da equação</strong>. Sem uma estratégia clara de produção, arquitetura de informação intuitiva e acompanhamento de indicadores reais de conversão, os números estagnam.
+        </p>
+
+        <p class="text-lg leading-relaxed">
+          Hoje, atuo na interseção entre <strong>gestão de conteúdo, branding digital e otimização de conversão (CRO)</strong>, atendendo projetos <strong>B2C</strong> (especialmente em educação e construção civil) e <strong>B2B</strong> (em empreendedorismo, finanças e tecnologia). Minha atuação é estratégica: estruturar processos de produção, governança editorial e metas quantitativas para que cada ativo gere valor mensurável à marca.
+        </p>
+      </div>
+
+      <!-- Aspas de Destaque Oficial -->
+      <SpeechQuote
+        quote="Conteúdo autêntico não é sobre soar perfeito — é sobre soar como você."
+        author="Aline Julio"
+        role="CRO Specialist & Gestora de Conteúdo"
+        variant="light"
+      />
+
+      <!-- Como a Marca Comunica (As Duas Frentes) -->
+      <div class="pt-6">
+        <h2 class="text-2xl font-black text-brand-black tracking-tight mb-6">
+          Duas frentes com a mesma voz por trás
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-brand-ice border border-brand-gray-300/50">
+            <span class="inline-block text-xs font-bold uppercase tracking-wider text-brand-red mb-2">Frente 1</span>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Gestão de Conteúdo</h3>
+            <p class="text-sm text-brand-gray-700 leading-relaxed">
+              Estratégia de produção, governança editorial e acompanhamento contínuo de KPIs e metas em conversão por tráfego orgânico, bem como posicionamento de marca em branding digital. Sem fórmulas genéricas ou métricas de vaidade.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-ice border border-brand-gray-300/50">
+            <span class="inline-block text-xs font-bold uppercase tracking-wider text-brand-red mb-2">Frente 2</span>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Consultoria Estratégica</h3>
+            <p class="text-sm text-brand-gray-700 leading-relaxed">
+              Consultoria em dados, usabilidade e conversão (CRO). Diagnóstico de atrito, heurísticas, testes A/B e arquitetura de informação com foco direto em crescimento de indicadores-chave.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Docência e Ensino: O Pilar de Entidade e Comunidade -->
+      <div class="pt-8 border-t border-brand-gray-300/40">
+        <h2 class="text-2xl font-black text-brand-black tracking-tight mb-4">
+          Docência, Mentorias e Palestras
+        </h2>
+        <p class="text-brand-gray-700 text-base leading-relaxed mb-6">
+          Acredito firmemente na troca ativa e no compartilhamento prático de conhecimento. Atuo como <strong>professora, palestrante e mentora</strong> em eventos, empresas e iniciativas do setor, ministrando formações práticas em:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <div class="p-4 bg-brand-ice rounded-xl border border-brand-gray-300/30 flex items-start gap-3">
+            <PhosphorIcon name="mentoria" size={22} color="red" className="mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-bold text-sm text-brand-black">UX Writing</h4>
+              <p class="text-xs text-brand-gray-500 mt-1">Microcopy, clareza e testes com usuários.</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-brand-ice rounded-xl border border-brand-gray-300/30 flex items-start gap-3">
+            <PhosphorIcon name="seo-pesquisa" size={22} color="red" className="mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-bold text-sm text-brand-black">SEO Semântico</h4>
+              <p class="text-xs text-brand-gray-500 mt-1">Entidades, E-E-A-T e intenção de busca.</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-brand-ice rounded-xl border border-brand-gray-300/30 flex items-start gap-3">
+            <PhosphorIcon name="gestao-conteudo" size={22} color="red" className="mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-bold text-sm text-brand-black">Gestão de Conteúdo</h4>
+              <p class="text-xs text-brand-gray-500 mt-1">Estratégia, KPIs e branding digital.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="/palestras"
+            class="inline-flex items-center gap-2 bg-brand-black hover:bg-brand-red text-white text-xs uppercase tracking-wider font-bold px-6 py-3.5 rounded-xl transition-colors shadow-sm"
+          >
+            <span>Ver histórico de palestras e aulas</span>
+            <PhosphorIcon name="arrow-right" size={16} color="white" />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/alinejulio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-brand-black hover:text-brand-red font-bold text-xs uppercase tracking-wider px-4 py-3.5 transition-colors"
+          >
+            <PhosphorIcon name="linkedin" size={18} color="red" />
+            <span>Conectar no LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

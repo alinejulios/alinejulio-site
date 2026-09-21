@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GeometricCorners from '../components/GeometricCorners.astro';
+import PhosphorIcon from '../components/PhosphorIcon.astro';
+import { palestras } from '../data/palestras';
+
+// Eventos estruturados em JSON-LD para o Google Knowledge Graph
+const eventsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  'name': 'Palestras e Aulas Ministradas por Aline Julio',
+  'itemListElement': palestras.map((p, idx) => ({
+    '@type': 'ListItem',
+    'position': idx + 1,
+    'item': {
+      '@type': 'EducationEvent',
+      'name': p.titulo,
+      'description': p.descricao,
+      'startDate': p.data,
+      'location': {
+        '@type': 'Place',
+        'name': p.local
+      },
+      'performer': {
+        '@type': 'Person',
+        'name': 'Aline Julio',
+        'sameAs': 'https://www.linkedin.com/in/alinejulio'
+      },
+      'organizer': {
+        '@type': 'Organization',
+        'name': p.eventoOuInstituicao
+      }
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title="Palestras, Aulas e Mentorias | Aline Julio"
+  description="Histórico de aulas, palestras e mentorias ministradas por Aline Julio em CRO, UX Writing, SEO Semântico e Gestão de Conteúdo."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventsSchema)} />
+
+  <!-- HEADER DA PÁGINA (Identidade de Consultoria: Assinatura 'Consultoria' e Geometria) -->
+  <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">
+    <GeometricCorners composition="B" position="top-right" />
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-brand-gray-300/60 shadow-sm mb-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Docência & Comunidade</span>
+        <span class="text-brand-gray-300">·</span>
+        <span class="text-xs font-semibold text-brand-black">Assinatura: Consultoria</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight mb-6">
+        Palestras, Aulas e <span class="text-brand-red">Mentorias</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-brand-gray-700 leading-relaxed max-w-2xl">
+        Compartilhando vivência prática de mercado em eventos do setor, universidades e programas de aceleração em CRO, UX Writing e SEO Semântico.
+      </p>
+    </div>
+  </section>
+
+  <!-- LISTA DE PARTICIPAÇÕES (Foco em Clareza e Validação Externa para o Google) -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho descritivo com contexto analítico -->
+      <div class="border-b border-brand-gray-300/50 pb-6 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-black text-brand-black tracking-tight">
+            Histórico de Participações
+          </h2>
+          <p class="text-sm text-brand-gray-700 mt-1">
+            Formatos voltados para capacitação prática e debate aprofundado com foco em dados e usabilidade.
+          </p>
+        </div>
+
+        <a
+          href="https://www.linkedin.com/in/alinejulio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-brand-red hover:bg-[#c8191e] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg shadow-sm transition-all"
+        >
+          <PhosphorIcon name="linkedin" size={16} color="white" />
+          <span>Convidar para Palestra / Aula</span>
+        </a>
+      </div>
+
+      <!-- Grid de Aulas e Palestras -->
+      <div class="space-y-6">
+        {palestras.map((item) => (
+          <article class="p-6 md:p-8 rounded-2xl bg-brand-ice border border-brand-gray-300/50 hover:border-brand-red/40 transition-all duration-200">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+              
+              <div class="flex-grow space-y-3">
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="inline-block px-3 py-1 rounded bg-brand-red text-white text-xs font-bold uppercase tracking-wider">
+                    {item.tipo}
+                  </span>
+                  <span class="text-xs font-semibold text-brand-gray-700">
+                    {item.data} · {item.local}
+                  </span>
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-white text-brand-black border border-brand-gray-300/40">
+                    {item.tema}
+                  </span>
+                </div>
+
+                <h3 class="text-xl md:text-2xl font-black text-brand-black tracking-tight leading-snug">
+                  {item.titulo}
+                </h3>
+
+                <p class="text-sm font-semibold text-brand-gray-900">
+                  {item.eventoOuInstituicao}
+                </p>
+
+                <p class="text-sm text-brand-gray-700 leading-relaxed pt-1">
+                  {item.descricao}
+                </p>
+              </div>
+
+              <!-- Ação de Validação Externa -->
+              <div class="flex-shrink-0 pt-2 md:pt-0">
+                <a
+                  href={item.linkOficial || "https://www.linkedin.com/in/alinejulio"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-brand-black hover:text-brand-red transition-colors p-2"
+                >
+                  <span>Ver no LinkedIn</span>
+                  <PhosphorIcon name="arrow-up-right" size={14} color="black" />
+                </a>
+              </div>
+
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Bloco Educacional Formal (Conforme pág. 11: Documentos e Consultoria com Geometria) -->
+      <div class="mt-16 p-8 rounded-2xl bg-brand-black text-white relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Ensino & Consultoria</span>
+          <h3 class="text-2xl font-black tracking-tight mt-2 mb-4">
+            Deseja uma palestra ou mentoria para sua equipe ou evento?
+          </h3>
+          <p class="text-brand-gray-300 text-sm leading-relaxed mb-6">
+            Estruturo apresentações e treinamentos sob medida nas áreas de <strong>Otimização de Conversão (CRO)</strong>, <strong>UX Writing</strong> e <strong>SEO Semântico</strong>, sempre com estudos de caso reais e metodologia comprovada.
+          </p>
+          <a
+            href="https://www.linkedin.com/in/alinejulio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-brand-red hover:bg-[#c8191e] text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all shadow-md"
+          >
+            <PhosphorIcon name="linkedin" size={18} color="white" />
+            <span>Falar com Aline no LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
