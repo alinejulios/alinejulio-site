@@ -33,13 +33,17 @@ const eventsSchema = {
     }
   }))
 };
+
+// Escapa '<' para impedir que um valor futuro (ex.: título de uma nova palestra)
+// contendo "</script>" feche a tag antes da hora (proteção em profundidade).
+const eventsSchemaJSON = JSON.stringify(eventsSchema).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout
   title="Palestras, Aulas e Mentorias | Aline Julio"
   description="Histórico de aulas, palestras e mentorias ministradas por Aline Julio em CRO, UX Writing, SEO Semântico e Gestão de Conteúdo."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(eventsSchema)} />
+  <script type="application/ld+json" set:html={eventsSchemaJSON} />
 
   <!-- HEADER DA PÁGINA (Identidade de Consultoria: Assinatura 'Consultoria' e Geometria) -->
   <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">

@@ -104,15 +104,9 @@ const navLinks = [
   </div>
 </header>
 
-<script>
-  const button = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-
-  if (button && menu) {
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', (!isExpanded).toString());
-      menu.classList.toggle('hidden');
-    });
-  }
-</script>
+<!--
+  Servido como arquivo estático (mesma origem) em vez de script inline/bundlado,
+  para que a Content Security Policy (ver vercel.json) não precise de
+  'unsafe-inline' nem de hashes por conteúdo em script-src.
+-->
+<script is:inline src="/scripts/navbar-menu.js" defer></script>

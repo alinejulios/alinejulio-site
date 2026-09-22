@@ -42,6 +42,9 @@ const personSchema = {
     'addressCountry': 'BR'
   }
 };
+// Escapa '<' para impedir que um valor futuro contendo "</script>" feche a tag
+// antes da hora (proteção em profundidade; os dados aqui são estáticos hoje).
+const personSchemaJSON = JSON.stringify(personSchema).replace(/</g, '\\u003c');
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+<script type="application/ld+json" set:html={personSchemaJSON} />
