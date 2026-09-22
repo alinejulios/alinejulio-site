@@ -1,10 +1,12 @@
 ---
-import '@fontsource/montserrat/400.css';
-import '@fontsource/montserrat/500.css';
-import '@fontsource/montserrat/600.css';
-import '@fontsource/montserrat/700.css';
-import '@fontsource/montserrat/800.css';
-import '@fontsource/montserrat/900.css';
+// Apenas o subset "latin" (cobre acentuação em PT-BR) de cada peso, em vez das 7
+// variantes de idioma que o @fontsource carrega por padrão — menos requisições de fonte.
+import montserrat400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
+import montserrat500 from '@fontsource/montserrat/files/montserrat-latin-500-normal.woff2?url';
+import montserrat600 from '@fontsource/montserrat/files/montserrat-latin-600-normal.woff2?url';
+import montserrat700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
+import montserrat800 from '@fontsource/montserrat/files/montserrat-latin-800-normal.woff2?url';
+import montserrat900 from '@fontsource/montserrat/files/montserrat-latin-900-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -21,6 +23,13 @@ const {
 } = Astro.props;
 
 const siteTitle = title.includes('Aline Julio') ? title : `${title} | Aline Julio`;
+
+const fontFaceCSS = [400, 500, 600, 700, 800, 900]
+  .map((weight, i) => {
+    const url = [montserrat400, montserrat500, montserrat600, montserrat700, montserrat800, montserrat900][i];
+    return `@font-face{font-family:'Montserrat';font-style:normal;font-weight:${weight};font-display:optional;src:url(${url}) format('woff2');}`;
+  })
+  .join('\n');
 ---
 
 <!-- Global Metadata -->
@@ -29,6 +38,18 @@ const siteTitle = title.includes('Aline Julio') ? title : `${title} | Aline Juli
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="canonical" href={canonicalUrl} />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Preload dos pesos mais usados acima da dobra (corpo de texto e títulos) -->
+<link rel="preload" as="font" type="font/woff2" href={montserrat400} crossorigin />
+<link rel="preload" as="font" type="font/woff2" href={montserrat900} crossorigin />
+
+<!--
+  font-display: optional (em vez do "swap" padrão do @fontsource) evita o reflow de
+  texto que causava Cumulative Layout Shift: com pesos 900/800 em títulos grandes, a
+  troca da fonte de fallback para a Montserrat mudava a quebra de linha depois do
+  primeiro paint. Com "optional" a fonte só é usada se já estiver pronta a tempo.
+-->
+<style is:global set:html={fontFaceCSS}></style>
 
 <!-- Primary Meta Tags -->
 <title>{siteTitle}</title>
@@ -55,3 +76,13 @@ const siteTitle = title.includes('Aline Julio') ? title : `${title} | Aline Juli
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#E32227" />
+
+<!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WD92JJ901K"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WD92JJ901K');
+</script>

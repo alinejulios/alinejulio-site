@@ -13,18 +13,32 @@ import PhosphorIcon from '../components/PhosphorIcon.astro';
   <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">
     <GeometricCorners composition="A" position="top-right" />
 
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-brand-gray-300/60 shadow-sm mb-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Trajetória Profissional</span>
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col-reverse sm:flex-row sm:items-center gap-8 sm:gap-10">
+        <div class="flex-grow">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-brand-gray-300/60 shadow-sm mb-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Trajetória Profissional</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight mb-6">
+            Quem é a <span class="text-brand-red">Aline Julio</span>
+          </h1>
+
+          <p class="text-xl text-brand-gray-700 leading-relaxed font-medium">
+            CRO Specialist e Estrategista de Marketing — uma atuação que une análise de dados, usabilidade e estratégia orientada a metas de conversão e branding.
+          </p>
+        </div>
+
+        <div class="flex-shrink-0 self-center sm:self-auto">
+          <img
+            src="/images/sobre/aline-headshot.jpg"
+            alt="Retrato de Aline Julio, CRO Specialist e Estrategista de Marketing"
+            width="400"
+            height="400"
+            class="w-32 h-32 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-2xl object-cover shadow-lg border-4 border-white"
+          />
+        </div>
       </div>
-
-      <h1 class="text-4xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight mb-6">
-        Quem é a <span class="text-brand-red">Aline Julio</span>
-      </h1>
-
-      <p class="text-xl text-brand-gray-700 leading-relaxed font-medium">
-        CRO Specialist e Estrategista de Marketing — uma atuação que une análise de dados, usabilidade e estratégia orientada a metas de conversão e branding.
-      </p>
     </div>
   </section>
 
@@ -41,6 +55,34 @@ import PhosphorIcon from '../components/PhosphorIcon.astro';
         <p class="text-lg leading-relaxed">
           Hoje, atuo na interseção entre <strong>gestão de conteúdo, branding digital e otimização de conversão (CRO)</strong>, atendendo projetos <strong>B2C</strong> (especialmente em educação e construção civil) e <strong>B2B</strong> (em empreendedorismo, finanças e tecnologia). Minha atuação é estratégica: estruturar processos de produção, governança editorial e metas quantitativas para que cada ativo gere valor mensurável à marca.
         </p>
+      </div>
+
+      <!-- Galeria: Bastidores da Atuação -->
+      <div class="grid grid-cols-3 gap-3 sm:gap-4">
+        <img
+          src="/images/sobre/aline-palco.jpg"
+          alt="Aline Julio palestrando sobre CRO no SEOCamp"
+          width="600"
+          height="600"
+          loading="lazy"
+          class="aspect-square w-full object-cover rounded-2xl border border-brand-gray-300/50 shadow-sm"
+        />
+        <img
+          src="/images/sobre/aline-seocamp.jpg"
+          alt="Aline Julio no SEOCamp, maior comunidade de SEO do Brasil"
+          width="600"
+          height="600"
+          loading="lazy"
+          class="aspect-square w-full object-cover rounded-2xl border border-brand-gray-300/50 shadow-sm"
+        />
+        <img
+          src="/images/sobre/aline-laptop.jpg"
+          alt="Aline Julio trabalhando em notebook"
+          width="600"
+          height="600"
+          loading="lazy"
+          class="aspect-square w-full object-cover rounded-2xl border border-brand-gray-300/50 shadow-sm"
+        />
       </div>
 
       <!-- Aspas de Destaque Oficial -->
