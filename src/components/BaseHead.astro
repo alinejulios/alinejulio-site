@@ -80,7 +80,9 @@ const fontFaceCSS = [400, 500, 600, 700, 800, 900]
 <!--
   Google tag (gtag.js). O trecho de inicialização mora em /scripts/ga4-init.js
   (mesma origem) em vez de inline, para que a Content Security Policy (ver
-  vercel.json) não precise de 'unsafe-inline' em script-src.
+  vercel.json) não precise de 'unsafe-inline' em script-src. Ele também é
+  quem injeta o gtag.js (~157KB) somente depois do evento "load" da página,
+  tirando esse script pesado do caminho crítico de renderização (PageSpeed:
+  "reduza o JavaScript não usado" / árvore de dependências da rede).
 -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WD92JJ901K"></script>
-<script is:inline src="/scripts/ga4-init.js"></script>
+<script is:inline src="/scripts/ga4-init.js" defer></script>
