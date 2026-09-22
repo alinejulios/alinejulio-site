@@ -48,8 +48,6 @@ const eventsSchema = {
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-brand-gray-300/60 shadow-sm mb-4">
         <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Docência & Comunidade</span>
-        <span class="text-brand-gray-300">·</span>
-        <span class="text-xs font-semibold text-brand-black">Assinatura: Consultoria</span>
       </div>
 
       <h1 class="text-4xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight mb-6">
@@ -120,18 +118,19 @@ const eventsSchema = {
                 </p>
               </div>
 
-              <!-- Ação de Validação Externa -->
-              <div class="flex-shrink-0 pt-2 md:pt-0">
-                <a
-                  href={item.linkOficial || "https://www.linkedin.com/in/alinejulio"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-brand-black hover:text-brand-red transition-colors p-2"
-                >
-                  <span>Ver no LinkedIn</span>
-                  <PhosphorIcon name="arrow-up-right" size={14} color="black" />
-                </a>
-              </div>
+              <!-- Ações -->
+              {item.materialPdf && (
+                <div class="flex-shrink-0 pt-2 md:pt-0">
+                  <a
+                    href={item.materialPdf}
+                    download
+                    class="inline-flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-white bg-brand-red hover:bg-[#c8191e] transition-colors px-3 py-2 rounded-lg shadow-sm"
+                  >
+                    <PhosphorIcon name="download" size={14} color="white" />
+                    <span>Baixar Material</span>
+                  </a>
+                </div>
+              )}
 
             </div>
           </article>

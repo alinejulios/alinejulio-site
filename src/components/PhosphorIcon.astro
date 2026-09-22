@@ -13,7 +13,8 @@ interface Props {
     | 'arrow-right'
     | 'arrow-up-right'
     | 'check-circle'
-    | 'compass';
+    | 'compass'
+    | 'download';
   size?: number | string;
   color?: 'red' | 'black' | 'white' | 'gray';
   className?: string;
@@ -110,6 +111,12 @@ const colorClasses = {
   {name === 'compass' && (
     <svg width={size} height={size} viewBox="0 0 256 256" fill="currentColor">
       <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm47.45-127.45a8,8,0,0,0-6.9-2.07l-64,16a8,8,0,0,0-5.84,5.84l-16,64a8,8,0,0,0,9.7,9.7l64-16a8,8,0,0,0,5.84-5.84l16-64A8,8,0,0,0,175.45,88.55ZM128,136a8,8,0,1,1,8-8A8,8,0,0,1,128,136Z"/>
+    </svg>
+  )}
+
+  {name === 'download' && (
+    <svg width={size} height={size} viewBox="0 0 256 256" fill="currentColor">
+      <path d="M224,144v64a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V144a8,8,0,0,1,16,0v64H208V144a8,8,0,0,1,16,0ZM117.66,157.66a8,8,0,0,0,11.31,0l40-40a8,8,0,0,0-11.31-11.32L136,128.69V32a8,8,0,0,0-16,0v96.69L98.34,106.34a8,8,0,0,0-11.31,11.32Z"/>
     </svg>
   )}
 </span>
