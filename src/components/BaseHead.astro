@@ -7,6 +7,7 @@ import montserrat600 from '@fontsource/montserrat/files/montserrat-latin-600-nor
 import montserrat700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
 import montserrat800 from '@fontsource/montserrat/files/montserrat-latin-800-normal.woff2?url';
 import montserrat900 from '@fontsource/montserrat/files/montserrat-latin-900-normal.woff2?url';
+import { DESCRICAO_3A_PESSOA, OG_IMAGE } from '../data/site';
 
 interface Props {
   title: string;
@@ -17,9 +18,9 @@ interface Props {
 
 const {
   title,
-  description = 'Aline Julio é CRO Specialist e Estrategista de Marketing com mais de 7 anos de experiência, unindo análise de dados, SEO On-Page e estratégia orientada a metas de negócio.',
-  image = '/images/aline-julio-logo.png',
-  canonicalUrl = Astro.url.href,
+  description = DESCRICAO_3A_PESSOA,
+  image = OG_IMAGE,
+  canonicalUrl = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
 const siteTitle = title.includes('Aline Julio') ? title : `${title} | Aline Julio`;
@@ -63,7 +64,10 @@ const fontFaceCSS = [400, 500, 600, 700, 800, 900]
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Aline Julio palestrando no palco do SEOcamp" />
 <meta property="og:site_name" content="Aline Julio" />
 <meta property="og:locale" content="pt_BR" />
 
@@ -72,7 +76,7 @@ const fontFaceCSS = [400, 500, 600, 700, 800, 900]
 <meta property="twitter:url" content={canonicalUrl} />
 <meta property="twitter:title" content={siteTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(image, Astro.site)} />
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#E32227" />

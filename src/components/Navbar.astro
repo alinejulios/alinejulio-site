@@ -3,12 +3,12 @@ import Logo from './Logo.astro';
 import PhosphorIcon from './PhosphorIcon.astro';
 
 const pathname = Astro.url.pathname;
-const cleanPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+const cleanPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
 
 const navLinks = [
   { href: '/', label: 'Início' },
-  { href: '/sobre', label: 'Sobre' },
-  { href: '/palestras', label: 'Palestras & Aulas' },
+  { href: '/sobre/', label: 'Sobre' },
+  { href: '/palestras/', label: 'Palestras & Aulas' },
 ];
 ---
 

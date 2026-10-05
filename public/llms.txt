@@ -1,15 +1,20 @@
 # Aline Julio
 
-> CRO Specialist e Estrategista de Marketing. Site oficial de Aline Julio — consultoria em Otimização de Taxa de Conversão (CRO), UX Writing e SEO Semântico, além de palestras, aulas e mentorias sobre dados, usabilidade e conversão.
+> CRO Specialist | Web Analytics | Content Designer | UX Writer | Digital Marketing Strategist. Desde 2019, Aline Julio une análise de dados, SEO On-Page e gestão de conteúdo. Atua em projetos B2B e B2C e dá palestras e mentorias de UX Writing, SEO Semântico e Estratégia de Conteúdo com foco em KPIs.
 
-Aline Julio tem mais de 7 anos de experiência unindo análise de dados, SEO On-Page e gestão de conteúdo. Atua em consultoria estratégica de CRO, UX e SEO para projetos B2B e B2C, e como professora, palestrante e mentora em eventos como SEOCamp e EducaSEO.
+Site oficial de Aline Julio (nome civil: Aline Julio da Silva), com consultoria em Otimização de Taxa de Conversão (CRO), UX Writing e SEO Semântico, e o histórico de palestras, aulas e mentorias no SEOcamp, na EducaSEO e em empresas.
 
 ## Páginas
 
-- [Início](https://alinejulio.com/): Posicionamento profissional, áreas de atuação (consultoria em CRO/UX/SEO e docência) e chamadas para contato.
-- [Sobre](https://alinejulio.com/sobre): Trajetória profissional, fotos e detalhamento das duas frentes de atuação (gestão de conteúdo e consultoria estratégica).
-- [Palestras, Aulas e Mentorias](https://alinejulio.com/palestras): Histórico de palestras, workshops e mentorias ministradas, com materiais para download quando disponíveis.
+- [Início](https://alinejulio.com/): Posicionamento profissional, frentes de atuação (consultoria e palestras e mentorias) e contato.
+- [Sobre](https://alinejulio.com/sobre/): Trajetória profissional desde 2019, formação, fotos e frentes de atuação.
+- [Palestras e aulas](https://alinejulio.com/palestras/): Histórico de palestras, aulas e mentorias, com slides para download quando disponíveis.
+- [Resumo em Markdown](https://alinejulio.com/aline-julio.md): Resumo completo para assistentes de IA.
 
-## Contato
+## Links
 
 - [LinkedIn](https://www.linkedin.com/in/alinejulio)
+- [EducaSEO](https://educaseo.com.br/professor/aline-julio/)
+- [Instagram (@_alinejulios)](https://www.instagram.com/_alinejulios/)
+- [X (@_alinejulios)](https://x.com/_alinejulios)
+- [SEOcamp São Paulo, março de 2026](https://seocamp.com.br/edicao/sao-paulo-27-marco-2026/)
