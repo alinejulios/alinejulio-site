@@ -20,7 +20,6 @@ Atuo na interseção entre Otimização de Taxa de Conversão (CRO), UX Writing 
 - **Direcional Engenharia** (2025 até hoje): Analista UX - CRO.
 - **EducaSEO** (2025 até hoje): Professora especialista.
 - **Cruzeiro do Sul Educacional** (2023 a 2025): Analista de Conteúdo em CRM e Analista de Conteúdo em UX e SEO.
-- **Aline Julio Comunicação Digital** (2022): Analista de conteúdo.
 - **Studio Visual** (2019 a 2023): Redatora e Analista de conteúdo.
 
 ## Formação
