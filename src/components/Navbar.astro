@@ -43,6 +43,7 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
         <PhosphorIcon name="linkedin-logo" size={20} />
         <span>LinkedIn</span>
         <PhosphorIcon name="arrow-up-right" size={16} />
+        <span class="sr-only"> (abre em nova aba)</span>
       </a>
     </nav>
 
@@ -53,7 +54,7 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex h-11 w-11 items-center justify-center rounded-md text-brand-black transition-colors hover:text-brand-red"
-        aria-label="Acessar LinkedIn de Aline Julio"
+        aria-label="LinkedIn de Aline Julio (abre em nova aba)"
       >
         <PhosphorIcon name="linkedin-logo" size={24} />
       </a>
@@ -61,16 +62,18 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
         id="mobile-menu-button"
         type="button"
         class="inline-flex h-11 w-11 items-center justify-center rounded-md text-brand-black transition-colors hover:text-brand-red"
-        aria-label="Abrir Menu de Navegação"
+        aria-label="Abrir menu"
         aria-expanded="false"
+        aria-controls="mobile-menu"
       >
-        <PhosphorIcon name="list" size={24} />
+        <span data-icon="open"><PhosphorIcon name="list" size={24} /></span>
+        <span data-icon="close" class="hidden"><PhosphorIcon name="x" size={24} /></span>
       </button>
     </div>
   </div>
 
   <!-- Painel mobile -->
-  <div id="mobile-menu" class="hidden space-y-2 border-t border-brand-gray-300 bg-white px-4 pb-6 pt-3 md:hidden">
+  <nav id="mobile-menu" aria-label="Navegação principal" class="hidden space-y-2 border-t border-brand-gray-300 bg-white px-4 pb-6 pt-3 md:hidden">
     {navLinks.map((link) => (
       <a
         href={link.href}
@@ -91,9 +94,10 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
       >
         <PhosphorIcon name="linkedin-logo" size={20} />
         <span>Conectar no LinkedIn</span>
+        <span class="sr-only"> (abre em nova aba)</span>
       </a>
     </div>
-  </div>
+  </nav>
 </header>
 
 <!--

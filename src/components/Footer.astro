@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import PhosphorIcon from './PhosphorIcon.astro';
+import SectionLabel from './SectionLabel.astro';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -22,27 +23,28 @@ const currentYear = new Date().getFullYear();
 
       <!-- Navegação -->
       <div class="space-y-3 md:col-span-3">
-        <span class="block text-xs font-bold uppercase tracking-widest text-brand-red">Navegação</span>
-        <ul class="space-y-2 text-sm text-brand-gray-300">
-          <li><a href="/" class="transition-colors hover:text-white">Início</a></li>
-          <li><a href="/sobre/" class="transition-colors hover:text-white">Sobre Aline Julio</a></li>
-          <li><a href="/palestras/" class="transition-colors hover:text-white">Palestras & Aulas</a></li>
+        <SectionLabel tone="dense" as="span">Navegação</SectionLabel>
+        <ul class="text-sm text-brand-gray-300">
+          <li><a href="/" class="inline-flex min-h-11 items-center transition-colors hover:text-white">Início</a></li>
+          <li><a href="/sobre/" class="inline-flex min-h-11 items-center transition-colors hover:text-white">Sobre Aline Julio</a></li>
+          <li><a href="/palestras/" class="inline-flex min-h-11 items-center transition-colors hover:text-white">Palestras & Aulas</a></li>
         </ul>
       </div>
 
       <!-- Conexões -->
       <div class="space-y-3 md:col-span-3">
-        <span class="block text-xs font-bold uppercase tracking-widest text-brand-red">Conexões</span>
+        <SectionLabel tone="dense" as="span">Conexões</SectionLabel>
         <div class="space-y-3">
           <a
             href="https://www.linkedin.com/in/alinejulio"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-sm text-brand-gray-300 transition-colors hover:text-white"
+            class="inline-flex min-h-11 items-center gap-2 text-sm text-brand-gray-300 transition-colors hover:text-white"
           >
             <PhosphorIcon name="linkedin-logo" size={20} class="text-white" />
             <span>Perfil no LinkedIn</span>
             <PhosphorIcon name="arrow-up-right" size={16} />
+            <span class="sr-only"> (abre em nova aba)</span>
           </a>
           <p class="text-xs text-brand-gray-300">
             Aulas, palestras, mentorias e consultoria estratégica em CRO e gestão de conteúdo.
@@ -55,7 +57,7 @@ const currentYear = new Date().getFullYear();
     <div class="flex flex-col items-center justify-between gap-4 pt-8 text-xs text-brand-gray-300 sm:flex-row">
       <p>Aline Julio – CNPJ 66.479.970/0001-20</p>
       <div class="flex items-center gap-4">
-        <a href="/aline-julio.md" class="transition-colors hover:text-white" title="Resumo desta página para assistentes de IA">
+        <a href="/aline-julio.md" class="inline-flex min-h-11 items-center transition-colors hover:text-white" title="Resumo desta página para assistentes de IA">
           Resumo para IA (.md)
         </a>
         <p>&copy; {currentYear} Aline Julio. Todos os direitos reservados.</p>

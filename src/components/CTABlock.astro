@@ -31,11 +31,13 @@ const ext = (a: Action) => (a.external ? { target: '_blank', rel: 'noopener nore
       <a href={primary.href} class="btn btn-inverse" {...ext(primary)}>
         <span>{primary.label}</span>
         <PhosphorIcon name={primary.external ? 'arrow-up-right' : 'arrow-right'} size={20} />
+        {primary.external && <span class="sr-only"> (abre em nova aba)</span>}
       </a>
       {secondary && (
         <a href={secondary.href} class="text-link inline-flex min-h-11 items-center gap-2 text-white" {...ext(secondary)}>
           <span>{secondary.label}</span>
           <PhosphorIcon name={secondary.external ? 'arrow-up-right' : 'arrow-right'} size={16} />
+          {secondary.external && <span class="sr-only"> (abre em nova aba)</span>}
         </a>
       )}
     </div>

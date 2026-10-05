@@ -85,3 +85,31 @@
     @apply font-bold underline decoration-1 underline-offset-4 hover:decoration-2;
   }
 }
+
+/* Foco visível em todos os links e botões (WCAG 2.2 AA) */
+:focus-visible {
+  outline: 2px solid #2C2C2C;
+  outline-offset: 2px;
+}
+/* Sobre fundo vermelho ou preto, o contorno fica branco */
+.bg-brand-red :focus-visible,
+.bg-brand-black :focus-visible,
+.btn-primary:focus-visible {
+  outline-color: #FFFFFF;
+}
+.bg-brand-red .btn-inverse:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+/* Movimento reduzido: sem transições, animações nem rolagem suave */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation: none !important;
+  }
+}
