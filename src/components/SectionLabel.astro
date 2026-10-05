@@ -1,0 +1,24 @@
+---
+// Rótulo de seção do guia: 14px, 700, caixa alta, 0,14em, traço vermelho 24×2px acima.
+// Sobre branco gelo o texto fica preto; vermelho só sobre branco puro; #C9C9C9 em fundo escuro.
+interface Props {
+  tone?: 'ice' | 'white' | 'dense';
+  as?: 'p' | 'span' | 'h2';
+  class?: string;
+}
+
+const { tone = 'ice', as: Tag = 'p', class: className = '' } = Astro.props;
+
+const color = {
+  ice: 'text-brand-black',
+  white: 'text-brand-red',
+  dense: 'text-brand-gray-300',
+}[tone];
+---
+
+<div class={`flex flex-col gap-2 ${className}`}>
+  <span aria-hidden="true" class="block h-0.5 w-6 bg-brand-red"></span>
+  <Tag class={`m-0 text-sm font-bold uppercase leading-snug tracking-[0.14em] ${color}`}>
+    <slot />
+  </Tag>
+</div>

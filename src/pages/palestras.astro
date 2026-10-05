@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GeometricCorners from '../components/GeometricCorners.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import CTABlock from '../components/CTABlock.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { palestras } from '../data/palestras';
 import { eventListNode } from '../data/schema';
@@ -13,131 +15,82 @@ const schema = [eventListNode(palestras)];
   description="Palestras, aulas e mentorias de Aline Julio em CRO, UX Writing e SEO Semântico, no SEOcamp, na EducaSEO e em empresas."
   schema={schema}
 >
-  <!-- HEADER DA PÁGINA (Identidade de Consultoria: Assinatura 'Consultoria' e Geometria) -->
-  <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">
+  <!-- CABEÇALHO -->
+  <section class="relative overflow-hidden border-b border-brand-gray-300 bg-brand-ice pb-16 pt-12 md:pb-24 md:pt-20">
     <GeometricCorners composition="B" position="top-right" />
 
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white border border-brand-gray-300/60 shadow-sm mb-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Docência & Comunidade</span>
-      </div>
+    <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <SectionLabel class="mb-4">Docência & Comunidade</SectionLabel>
 
-      <h1 class="text-4xl sm:text-5xl font-black text-brand-black tracking-tight leading-tight mb-6">
+      <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-brand-black sm:text-5xl">
         Palestras, Aulas e <span class="text-brand-red">Mentorias</span>
       </h1>
 
-      <p class="text-lg sm:text-xl text-brand-gray-700 leading-relaxed max-w-2xl">
+      <p class="max-w-2xl text-lg leading-relaxed text-brand-gray-700 sm:text-xl">
         Compartilhando vivência prática de mercado em eventos do setor, universidades e programas de aceleração em CRO, UX Writing e SEO Semântico.
       </p>
     </div>
   </section>
 
-  <!-- LISTA DE PARTICIPAÇÕES (Foco em Clareza e Validação Externa para o Google) -->
-  <section class="py-16 md:py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Cabeçalho descritivo com contexto analítico -->
-      <div class="border-b border-brand-gray-300/50 pb-6 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  <!-- LISTA -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 flex flex-col justify-between gap-4 border-b border-brand-gray-300 pb-6 sm:flex-row sm:items-center">
         <div>
-          <h2 class="text-2xl font-black text-brand-black tracking-tight">
-            Histórico de Participações
-          </h2>
-          <p class="text-sm text-brand-gray-700 mt-1">
+          <h2 class="text-2xl font-extrabold tracking-tight text-brand-black">Histórico de Participações</h2>
+          <p class="mt-1 text-sm text-brand-gray-700">
             Formatos voltados para capacitação prática e debate aprofundado com foco em dados e usabilidade.
           </p>
         </div>
-
-        <a
-          href="https://www.linkedin.com/in/alinejulio"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-brand-red hover:bg-[#c8191e] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg shadow-sm transition-all"
-        >
-          <PhosphorIcon name="linkedin" size={16} color="white" />
+        <a href="https://www.linkedin.com/in/alinejulio" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-sm">
+          <PhosphorIcon name="linkedin-logo" size={20} />
           <span>Convidar para Palestra / Aula</span>
         </a>
       </div>
 
-      <!-- Grid de Aulas e Palestras -->
       <div class="space-y-6">
         {palestras.map((item) => (
-          <article id={item.id} class="p-6 md:p-8 rounded-2xl bg-brand-ice border border-brand-gray-300/50 hover:border-brand-red/40 transition-all duration-200">
-            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
-              
-              <div class="flex-grow space-y-3">
+          <article id={item.id} class="card p-6 md:p-8">
+            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-start">
+              <div class="grow space-y-3">
                 <div class="flex flex-wrap items-center gap-3">
-                  <span class="inline-block px-3 py-1 rounded bg-brand-red text-white text-xs font-bold uppercase tracking-wider">
-                    {item.tipo}
-                  </span>
+                  <span class="badge badge-red">{item.tipo}</span>
                   <span class="text-xs font-semibold text-brand-gray-700">
                     <time datetime={item.dataISO}>{item.dataTexto}</time> · {item.localTexto}
                   </span>
-                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-white text-brand-black border border-brand-gray-300/40">
-                    {item.tema}
-                  </span>
+                  <span class="tag">{item.tema}</span>
                 </div>
 
-                <h3 class="text-xl md:text-2xl font-black text-brand-black tracking-tight leading-snug">
-                  {item.titulo}
-                </h3>
+                <h3 class="text-xl font-extrabold leading-snug tracking-tight text-brand-black md:text-2xl">{item.titulo}</h3>
+                <p class="text-sm font-semibold text-brand-black">{item.eventoTexto}</p>
 
-                <p class="text-sm font-semibold text-brand-gray-900">
-                  {item.eventoTexto}
-                </p>
-
-                {item.descricao && (
-                  <p class="text-sm text-brand-gray-700 leading-relaxed pt-1">
-                    {item.descricao}
-                  </p>
-                )}
+                {item.descricao && <p class="pt-1 text-sm leading-relaxed text-brand-gray-700">{item.descricao}</p>}
                 {item.topicos && (
-                  <ul class="list-disc pl-5 space-y-1 text-sm text-brand-gray-700 leading-relaxed">
+                  <ul class="list-disc space-y-1 pl-5 text-sm leading-relaxed text-brand-gray-700">
                     {item.topicos.map((t) => <li>{t}</li>)}
                   </ul>
                 )}
               </div>
 
-              <!-- Ações -->
               {item.slides && (
-                <div class="flex-shrink-0 pt-2 md:pt-0">
-                  <a
-                    href={item.slides.href}
-                    download
-                    class="inline-flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-white bg-brand-red hover:bg-[#c8191e] transition-colors px-3 py-2 rounded-lg shadow-sm"
-                  >
-                    <PhosphorIcon name="download" size={14} color="white" />
+                <div class="shrink-0 pt-2 md:pt-0">
+                  <a href={item.slides.href} download class="btn btn-primary px-4 text-sm">
+                    <PhosphorIcon name="download-simple" size={20} />
                     <span>Baixar Material</span>
                   </a>
                 </div>
               )}
-
             </div>
           </article>
         ))}
       </div>
-
-      <!-- Bloco Educacional Formal (Conforme pág. 11: Documentos e Consultoria com Geometria) -->
-      <div class="mt-16 p-8 rounded-2xl bg-brand-black text-white relative overflow-hidden">
-        <div class="relative z-10 max-w-2xl">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Ensino & Consultoria</span>
-          <h3 class="text-2xl font-black tracking-tight mt-2 mb-4">
-            Deseja uma palestra ou mentoria para sua equipe ou evento?
-          </h3>
-          <p class="text-brand-gray-300 text-sm leading-relaxed mb-6">
-            Estruturo apresentações e treinamentos sob medida nas áreas de <strong>Otimização de Conversão (CRO)</strong>, <strong>UX Writing</strong> e <strong>SEO Semântico</strong>, sempre com estudos de caso reais e metodologia comprovada.
-          </p>
-          <a
-            href="https://www.linkedin.com/in/alinejulio"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-brand-red hover:bg-[#c8191e] text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all shadow-md"
-          >
-            <PhosphorIcon name="linkedin" size={18} color="white" />
-            <span>Falar com Aline no LinkedIn</span>
-          </a>
-        </div>
-      </div>
-
     </div>
   </section>
+
+  <CTABlock
+    title="Deseja uma palestra ou mentoria para sua equipe ou evento?"
+    primary={{ label: 'Falar com Aline no LinkedIn', href: 'https://www.linkedin.com/in/alinejulio', external: true }}
+  >
+    Estruturo apresentações e treinamentos sob medida em CRO, UX Writing e SEO Semântico, com estudos de caso reais e exercícios práticos.
+  </CTABlock>
 </BaseLayout>

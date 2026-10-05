@@ -1,12 +1,12 @@
 ---
 // Apenas o subset "latin" (cobre acentuação em PT-BR) de cada peso, em vez das 7
 // variantes de idioma que o @fontsource carrega por padrão — menos requisições de fonte.
+import montserrat300italic from '@fontsource/montserrat/files/montserrat-latin-300-italic.woff2?url';
 import montserrat400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
 import montserrat500 from '@fontsource/montserrat/files/montserrat-latin-500-normal.woff2?url';
 import montserrat600 from '@fontsource/montserrat/files/montserrat-latin-600-normal.woff2?url';
 import montserrat700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
 import montserrat800 from '@fontsource/montserrat/files/montserrat-latin-800-normal.woff2?url';
-import montserrat900 from '@fontsource/montserrat/files/montserrat-latin-900-normal.woff2?url';
 import { DESCRICAO_3A_PESSOA, OG_IMAGE } from '../data/site';
 
 interface Props {
@@ -25,11 +25,17 @@ const {
 
 const siteTitle = title.includes('Aline Julio') ? title : `${title} | Aline Julio`;
 
-const fontFaceCSS = [400, 500, 600, 700, 800, 900]
-  .map((weight, i) => {
-    const url = [montserrat400, montserrat500, montserrat600, montserrat700, montserrat800, montserrat900][i];
-    return `@font-face{font-family:'Montserrat';font-style:normal;font-weight:${weight};font-display:optional;src:url(${url}) format('woff2');}`;
-  })
+// Pesos em uso: 300 itálico (citação), 400, 500, 600, 700 e 800 (títulos).
+const fontFaces: [number, 'normal' | 'italic', string][] = [
+  [300, 'italic', montserrat300italic],
+  [400, 'normal', montserrat400],
+  [500, 'normal', montserrat500],
+  [600, 'normal', montserrat600],
+  [700, 'normal', montserrat700],
+  [800, 'normal', montserrat800],
+];
+const fontFaceCSS = fontFaces
+  .map(([weight, style, url]) => `@font-face{font-family:'Montserrat';font-style:${style};font-weight:${weight};font-display:optional;src:url(${url}) format('woff2');}`)
   .join('\n');
 ---
 
@@ -42,11 +48,11 @@ const fontFaceCSS = [400, 500, 600, 700, 800, 900]
 
 <!-- Preload dos pesos mais usados acima da dobra (corpo de texto e títulos) -->
 <link rel="preload" as="font" type="font/woff2" href={montserrat400} crossorigin />
-<link rel="preload" as="font" type="font/woff2" href={montserrat900} crossorigin />
+<link rel="preload" as="font" type="font/woff2" href={montserrat800} crossorigin />
 
 <!--
   font-display: optional (em vez do "swap" padrão do @fontsource) evita o reflow de
-  texto que causava Cumulative Layout Shift: com pesos 900/800 em títulos grandes, a
+  texto que causava Cumulative Layout Shift: com peso 800 em títulos grandes, a
   troca da fonte de fallback para a Montserrat mudava a quebra de linha depois do
   primeiro paint. Com "optional" a fonte só é usada se já estiver pronta a tempo.
 -->

@@ -1,14 +1,87 @@
 @import "tailwindcss";
 
+/*
+ * Tokens da marca (Design system Aline Julio). As paletas, raios e sombras
+ * padrão do Tailwind são zerados: só existem as cores, raios e (nenhuma)
+ * sombra permitidos pelo guia.
+ */
 @theme {
+  --color-*: initial;
+  --color-white: #FFFFFF;
   --color-brand-ice: #F7F7F7;
   --color-brand-black: #2C2C2C;
   --color-brand-red: #E32227;
-  --color-brand-gray-100: #F7F7F7;
   --color-brand-gray-300: #C9C9C9;
   --color-brand-gray-500: #9B9B9B;
   --color-brand-gray-700: #6B6B6B;
-  --color-brand-gray-900: #2C2C2C;
+  --color-brand-red-deep: #C8191E;   /* só dentro do degradê */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BD5A;
+
+  --radius-*: initial;
+  --radius-sm: 4px;   /* tags */
+  --radius-md: 8px;   /* botões, cards, caixas de ícone */
+
+  --shadow-*: initial;
+  --drop-shadow-*: initial;
 
   --font-sans: 'Montserrat', sans-serif;
+}
+
+:root {
+  --gradient-red: linear-gradient(135deg, #E32227, #C8191E);
+  --duration-ui: 150ms;
+}
+
+@layer components {
+  /* Botões: raio 8px, altura mínima 44px, hover só com cor ou degradê */
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md border px-6 py-2.5 text-center text-base font-bold leading-tight no-underline;
+    transition: background-color var(--duration-ui) ease, color var(--duration-ui) ease, border-color var(--duration-ui) ease;
+  }
+  .btn-primary {
+    @apply border-transparent bg-brand-red text-white;
+  }
+  .btn-primary:hover {
+    background-image: var(--gradient-red);
+  }
+  .btn-secondary {
+    @apply border-brand-black bg-transparent text-brand-black hover:bg-brand-black hover:text-white;
+  }
+  .btn-inverse {
+    @apply border-white bg-white text-brand-black hover:bg-brand-ice;
+  }
+
+  /* Cards: sem sombra, borda #C9C9C9 de 1px, raio 8px */
+  .card {
+    @apply rounded-md border border-brand-gray-300 bg-white;
+  }
+  a.card {
+    @apply block no-underline;
+    transition: border-color var(--duration-ui) ease;
+  }
+  a.card:hover {
+    @apply border-brand-black;
+  }
+
+  /* Tag de categorização: raio 4px, fundo branco gelo, texto preto */
+  .tag {
+    @apply inline-block rounded-sm bg-brand-ice px-2.5 py-1 text-xs font-medium leading-snug text-brand-black;
+  }
+
+  /* Selo pílula */
+  .badge {
+    @apply inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-bold uppercase leading-tight tracking-[0.06em];
+  }
+  .badge-outline {
+    @apply border-brand-gray-300 bg-white text-brand-black;
+  }
+  .badge-red {
+    @apply border-brand-red bg-brand-red text-white;
+  }
+
+  /* Link de texto com sublinhado no hover */
+  .text-link {
+    @apply font-bold underline decoration-1 underline-offset-4 hover:decoration-2;
+  }
 }

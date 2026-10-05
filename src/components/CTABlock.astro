@@ -1,0 +1,43 @@
+---
+// Bloco de chamada final (um por página): vermelho chapado, texto branco 100%,
+// botão branco com texto preto e, opcionalmente, um link secundário.
+import PhosphorIcon from './PhosphorIcon.astro';
+
+interface Action {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  title: string;
+  primary: Action;
+  secondary?: Action;
+}
+
+const { title, primary, secondary } = Astro.props;
+const ext = (a: Action) => (a.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
+---
+
+<section class="bg-brand-red text-white">
+  <div class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <h2 class="m-0 max-w-[20ch] text-3xl font-extrabold leading-tight tracking-tight text-balance sm:text-4xl">
+      {title}
+    </h2>
+    <p class="m-0 max-w-[56ch] text-lg leading-relaxed text-pretty">
+      <slot />
+    </p>
+    <div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
+      <a href={primary.href} class="btn btn-inverse" {...ext(primary)}>
+        <span>{primary.label}</span>
+        <PhosphorIcon name={primary.external ? 'arrow-up-right' : 'arrow-right'} size={20} />
+      </a>
+      {secondary && (
+        <a href={secondary.href} class="text-link inline-flex min-h-11 items-center gap-2 text-white" {...ext(secondary)}>
+          <span>{secondary.label}</span>
+          <PhosphorIcon name={secondary.external ? 'arrow-up-right' : 'arrow-right'} size={16} />
+        </a>
+      )}
+    </div>
+  </div>
+</section>
