@@ -6,7 +6,6 @@ import Quote from '../components/Quote.astro';
 import FrentesAtuacao from '../components/FrentesAtuacao.astro';
 import CTABlock from '../components/CTABlock.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
-import BalloonFrame from '../components/BalloonFrame.astro';
 import { profilePageNode } from '../data/schema';
 import { DESCRICAO_3A_PESSOA, TITULO_PROFISSIONAL } from '../data/site';
 import { CTA } from '../data/contato';
@@ -68,9 +67,9 @@ const linhas = [
 ];
 
 const fotos = [
-  { src: '/images/sobre/aline-palco.jpg', alt: 'Aline Julio palestrando com microfone no palco do SEOcamp, ao lado do slide “O que é sucesso em CRO?”' },
-  { src: '/images/sobre/aline-seocamp.jpg', alt: 'Aline Julio, com crachá do evento, diante do painel do SEOcamp “Eu faço parte da maior comunidade de SEO do Brasil”' },
-  { src: '/images/sobre/aline-laptop.jpg', alt: 'Aline Julio sorrindo, sentada com um notebook no colo diante de uma parede de plantas' },
+  { src: '/images/sobre/aline-palco.webp', alt: 'Aline Julio palestrando com microfone no palco do SEOcamp, ao lado do slide “O que é sucesso em CRO?”' },
+  { src: '/images/sobre/aline-seocamp.webp', alt: 'Aline Julio, com crachá do evento, diante do painel do SEOcamp “Eu faço parte da maior comunidade de SEO do Brasil”' },
+  { src: '/images/sobre/aline-laptop.webp', alt: 'Aline Julio sorrindo, sentada com um notebook no colo diante de uma parede de plantas' },
 ];
 ---
 
@@ -98,13 +97,14 @@ const fotos = [
         </div>
 
         <div class="shrink-0 self-start md:self-auto">
-          <BalloonFrame
-            src="/images/aline-headshot.jpg"
+          <!-- Fotos já com a moldura do balão aplicada na arte (pessoa na frente do traço) -->
+          <img
+            src="/images/aline-headshot.webp"
             alt="Retrato de Aline Julio"
-            width={400}
-            height={400}
-            tone="red"
+            width="500"
+            height="500"
             loading="eager"
+            fetchpriority="high"
             class="w-60 md:w-80"
           />
         </div>
@@ -160,7 +160,7 @@ const fotos = [
       <!-- Galeria -->
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4">
         {fotos.map((foto) => (
-          <BalloonFrame src={foto.src} alt={foto.alt} width={800} height={800} class="w-full" />
+          <img src={foto.src} alt={foto.alt} width="500" height="500" loading="lazy" class="w-full" />
         ))}
       </div>
 

@@ -80,7 +80,7 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
         href={link.href}
         aria-current={isActive(link.href) ? 'page' : undefined}
         class={`flex min-h-11 items-center rounded-md px-3 text-base font-semibold ${
-          isActive(link.href) ? 'bg-brand-ice text-brand-red' : 'text-brand-black hover:bg-brand-ice'
+          isActive(link.href) ? 'border-l-2 border-brand-red bg-brand-ice text-brand-black' : 'text-brand-black hover:bg-brand-ice'
         }`}
       >
         {link.label}
