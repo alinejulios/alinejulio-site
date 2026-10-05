@@ -6,7 +6,7 @@ import FrentesAtuacao from '../components/FrentesAtuacao.astro';
 import CTABlock from '../components/CTABlock.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { palestras } from '../data/palestras';
-import { DESCRICAO_1A_PESSOA, LINKS } from '../data/site';
+import { DESCRICAO_1A_PESSOA } from '../data/site';
 import { CTA } from '../data/contato';
 
 const palestrasRecentes = palestras.filter((p) => p.publico).slice(0, 3);
@@ -41,13 +41,6 @@ const palestrasRecentes = palestras.filter((p) => p.publico).slice(0, 3);
             <PhosphorIcon name="arrow-right" size={20} />
           </a>
         </div>
-
-        <!-- Credenciais -->
-        <p class="mt-6 text-sm font-medium text-brand-black">
-          Palestrante no <a href={LINKS.seocamp} target="_blank" rel="noopener noreferrer" class="text-link inline-block py-3">SEOcamp<span class="sr-only"> (abre em nova aba)</span></a>
-          {' '}<span aria-hidden="true">·</span>{' '}
-          Professora na <a href={LINKS.educaseo} target="_blank" rel="noopener noreferrer" class="text-link inline-block py-3">EducaSEO<span class="sr-only"> (abre em nova aba)</span></a>
-        </p>
       </div>
     </div>
   </section>
