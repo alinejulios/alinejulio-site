@@ -1,39 +1,38 @@
 ---
-// Moldura de foto no formato do balão do ícone oficial (sem redesenhar: são os
-// mesmos pontos do <g id="Balão"> de public/images/icone-logo.svg, já com a
-// transformação do arquivo aplicada e normalizados para o próprio contorno).
-// A foto é recortada pelo contorno externo e o anel do balão fica por cima,
-// em vermelho. A proporção 826:930 do balão é mantida, para não distorcer a forma.
+// Foto no padrão do ícone oficial: a imagem ocupa o quadrado de cantos
+// arredondados do logo (raio 231/1077 = 21,44% do lado) e o balão fica
+// desenhado dentro dele, na mesma posição e escala do ícone.
+// A geometria vem de public/images/icone-logo.svg sem redesenho: o viewBox é o
+// quadrado vermelho do ícone e o <path> é o do <g id="Balão">, com a mesma transformação.
 interface Props {
   src: string;
   alt: string;
   width: number;
   height: number;
+  /** Cor do balão: vermelho (foto do topo) ou branco (demais fotos) */
+  tone?: 'red' | 'white';
   loading?: 'lazy' | 'eager';
   class?: string;
 }
 
-const { src, alt, width, height, loading = 'lazy', class: className = '' } = Astro.props;
-
-const OUTER = '824.0,176.3 826.2,782.0 302.7,827.8 303.3,930.0 0.3,664.8 0.0,61.1 598.8,0.0';
-const INNER = '802.1,187.0 592.3,22.8 22.0,81.0 22.3,654.8 281.0,881.3 280.6,807.6 804.1,761.8';
+const { src, alt, width, height, tone = 'white', loading = 'lazy', class: className = '' } = Astro.props;
 ---
 
-<div class={`balloon-frame relative aspect-[826/930] ${className}`}>
+<div class={`relative aspect-square overflow-hidden rounded-[21.44%] ${className}`}>
   <img src={src} alt={alt} width={width} height={height} loading={loading} class="h-full w-full object-cover" />
   <svg
-    class="pointer-events-none absolute inset-0 h-full w-full text-brand-red"
-    viewBox="0 0 826.2 930"
+    class={`pointer-events-none absolute inset-0 h-full w-full ${tone === 'red' ? 'text-brand-red' : 'text-white'}`}
+    viewBox="1.33 3.14 1077.33 1073.73"
     preserveAspectRatio="none"
     aria-hidden="true"
     focusable="false"
   >
-    <path fill="currentColor" fill-rule="evenodd" d={`M${OUTER}Z M${INNER}Z`} />
+    <g transform="matrix(-1.43325,0,0,1.38134,1327.48,-210.532)">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M262.72,334.309L261.227,772.789L626.462,805.95L626.05,879.982L837.414,687.969L837.656,250.935L419.83,206.688L262.72,334.309ZM278.043,342.089L424.423,223.184L822.298,265.318L822.068,680.741L641.597,844.69L641.893,791.363L276.626,758.2L278.043,342.089Z"
+      />
+    </g>
   </svg>
 </div>
-
-<style>
-  .balloon-frame {
-    clip-path: polygon(99.74% 18.95%, 100% 84.08%, 36.64% 89%, 36.71% 100%, 0.04% 71.48%, 0% 6.57%, 72.49% 0%);
-  }
-</style>
