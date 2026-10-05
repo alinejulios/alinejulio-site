@@ -15,8 +15,9 @@ const navLinks = [
 const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath.startsWith(href));
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-brand-gray-300 bg-white">
-  <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<header id="site-header" class="site-header sticky top-0 z-50 w-full">
+  <div class="site-header__bg" aria-hidden="true"></div>
+  <div class="site-header__content flex h-20 items-center justify-between">
     <Logo variant="light" />
 
     <!-- Navegação desktop -->
@@ -74,7 +75,7 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
   </div>
 
   <!-- Painel mobile -->
-  <nav id="mobile-menu" aria-label="Navegação principal" class="hidden space-y-2 border-t border-brand-gray-300 bg-white px-4 pb-6 pt-3 md:hidden">
+  <nav id="mobile-menu" aria-label="Navegação principal" class="site-header__panel hidden space-y-2 px-4 pb-6 pt-3 md:hidden">
     {navLinks.map((link) => (
       <a
         href={link.href}

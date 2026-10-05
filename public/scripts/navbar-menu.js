@@ -28,3 +28,28 @@
     });
   }
 }
+
+// Cabeçalho flutuante: ao sair do topo, o fundo vira um cartão (ver .is-stuck no CSS)
+{
+  const header = document.getElementById('site-header');
+
+  if (header) {
+    let ticking = false;
+    const update = () => {
+      header.classList.toggle('is-stuck', window.scrollY > 8);
+      ticking = false;
+    };
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+    update();
+  }
+}

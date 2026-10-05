@@ -113,3 +113,68 @@
     animation: none !important;
   }
 }
+
+/*
+ * Cabeçalho: no topo é uma barra branca de largura total; ao rolar, o fundo
+ * se recolhe num cartão flutuante translúcido (classe .is-stuck, aplicada por
+ * /scripts/navbar-menu.js). Só o fundo muda de tamanho: a altura do cabeçalho
+ * fica fixa em 80px, sem deslocar o conteúdo da página.
+ */
+.site-header {
+  --header-max: 72rem;                       /* = max-w-6xl */
+  --header-pad: 1rem;                        /* respiro interno, como px-4/6/8 */
+  --header-inset: max(12px, calc((100% - var(--header-max)) / 2));
+  --header-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --header-time: 450ms;
+}
+@media (min-width: 640px) { .site-header { --header-pad: 1.5rem; } }
+@media (min-width: 1024px) { .site-header { --header-pad: 2rem; } }
+
+.site-header__bg {
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  border-bottom-color: var(--color-brand-gray-300);
+  border-radius: 0;
+  transition-property: top, right, bottom, left, border-radius, border-color, background-color, backdrop-filter;
+  transition-duration: var(--header-time);
+  transition-timing-function: var(--header-ease);
+}
+.site-header.is-stuck .site-header__bg {
+  top: 10px;
+  bottom: 10px;
+  left: var(--header-inset);
+  right: var(--header-inset);
+  background: rgb(255 255 255 / 0.78);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-color: var(--color-brand-gray-300);
+  border-radius: var(--radius-md);
+}
+
+.site-header__content {
+  position: relative;
+  padding-inline: max(var(--header-pad), calc((100% - var(--header-max)) / 2 + var(--header-pad)));
+  transition: padding var(--header-time) var(--header-ease);
+}
+.site-header.is-stuck .site-header__content {
+  padding-inline: max(calc(12px + var(--header-pad)), calc((100% - var(--header-max)) / 2 + var(--header-pad)));
+}
+
+/* Painel mobile: abre por cima do conteúdo e acompanha o formato do fundo */
+.site-header__panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-brand-gray-300);
+}
+.site-header.is-stuck .site-header__panel {
+  top: calc(100% - 4px);
+  left: var(--header-inset);
+  right: var(--header-inset);
+  border: 1px solid var(--color-brand-gray-300);
+  border-radius: var(--radius-md);
+}
