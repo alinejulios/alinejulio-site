@@ -1,15 +1,12 @@
 ---
 import PhosphorIcon from './PhosphorIcon.astro';
-
-const phoneNumber = '5511936188888';
-const message = 'Olá, estava no seu site e gostaria de mais informações sobre os seus serviços em marketing.';
-const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+import { WHATSAPP_FLUTUANTE } from '../data/contato';
 ---
 
 <!-- Exceção de cor aprovada: o verde do WhatsApp só existe neste botão. -->
 <a
   id="whatsapp-button"
-  href={whatsappUrl}
+  href={WHATSAPP_FLUTUANTE}
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Conversar no WhatsApp"

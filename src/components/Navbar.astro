@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import PhosphorIcon from './PhosphorIcon.astro';
+import { CTA } from '../data/contato';
 
 const pathname = Astro.url.pathname;
 const cleanPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
@@ -35,13 +36,13 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
       ))}
 
       <a
-        href="https://www.linkedin.com/in/alinejulio"
+        href={CTA.linkedin.href}
         target="_blank"
         rel="noopener noreferrer"
         class="btn btn-secondary px-4 text-sm"
       >
         <PhosphorIcon name="linkedin-logo" size={20} />
-        <span>LinkedIn</span>
+        <span>{CTA.linkedin.label}</span>
         <PhosphorIcon name="arrow-up-right" size={16} />
         <span class="sr-only"> (abre em nova aba)</span>
       </a>
@@ -50,7 +51,7 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
     <!-- Menu mobile -->
     <div class="flex items-center gap-2 md:hidden">
       <a
-        href="https://www.linkedin.com/in/alinejulio"
+        href={CTA.linkedin.href}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex h-11 w-11 items-center justify-center rounded-md text-brand-black transition-colors hover:text-brand-red"
@@ -87,13 +88,13 @@ const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath
     ))}
     <div class="pt-2">
       <a
-        href="https://www.linkedin.com/in/alinejulio"
+        href={CTA.linkedin.href}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-primary w-full"
+        class="btn btn-secondary w-full"
       >
         <PhosphorIcon name="linkedin-logo" size={20} />
-        <span>Conectar no LinkedIn</span>
+        <span>{CTA.linkedin.label}</span>
         <span class="sr-only"> (abre em nova aba)</span>
       </a>
     </div>
