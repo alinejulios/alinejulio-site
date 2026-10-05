@@ -10,12 +10,15 @@ import { profilePageNode } from '../data/schema';
 import { DESCRICAO_3A_PESSOA, TITULO_PROFISSIONAL } from '../data/site';
 import { CTA } from '../data/contato';
 
+// Padrão dos cargos: só a primeira letra maiúscula (exceto siglas), mais recente
+// primeiro, como no LinkedIn. Com mais de um cargo na mesma organização, cada
+// um leva o próprio período entre parênteses.
 const experiencia = [
   {
     periodo: '2025 até hoje',
     org: 'Direcional Engenharia',
     url: 'https://www.direcional.com.br/',
-    funcoes: ['Analista UX - CRO'],
+    funcoes: ['Analista de UX e CRO'],
   },
   {
     periodo: '2025 até hoje',
@@ -27,13 +30,13 @@ const experiencia = [
     periodo: '2023 a 2025',
     org: 'Cruzeiro do Sul Educacional',
     url: 'https://www.cruzeirodosuleducacional.com.br/',
-    funcoes: ['Analista de Conteúdo em CRM (2023 a 2024)', 'Analista de Conteúdo em UX e SEO (2024 a 2025)'],
+    funcoes: ['Analista de conteúdo em UX e SEO (2024 a 2025)', 'Analista de conteúdo em CRM (2023 a 2024)'],
   },
   {
     periodo: '2019 a 2023',
     org: 'Studio Visual',
     url: 'https://studiovisual.com.br/',
-    funcoes: ['Redatora (2019)', 'Analista de conteúdo (2019 a 2023)'],
+    funcoes: ['Analista de conteúdo em UX e SEO (2019 a 2023)', 'Redatora estagiária (2019)'],
   },
 ];
 

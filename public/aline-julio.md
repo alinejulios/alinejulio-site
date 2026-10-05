@@ -17,10 +17,10 @@ Atuo na interseção entre Otimização de Taxa de Conversão (CRO), UX Writing 
 
 ## Trajetória
 
-- **Direcional Engenharia** (2025 até hoje): Analista UX - CRO.
+- **Direcional Engenharia** (2025 até hoje): Analista de UX e CRO.
 - **EducaSEO** (2025 até hoje): Professora especialista.
-- **Cruzeiro do Sul Educacional** (2023 a 2025): Analista de Conteúdo em CRM e Analista de Conteúdo em UX e SEO.
-- **Studio Visual** (2019 a 2023): Redatora e Analista de conteúdo.
+- **Cruzeiro do Sul Educacional** (2023 a 2025): Analista de conteúdo em UX e SEO (2024 a 2025); Analista de conteúdo em CRM (2023 a 2024).
+- **Studio Visual** (2019 a 2023): Analista de conteúdo em UX e SEO (2019 a 2023); Redatora estagiária (2019).
 
 ## Formação
 
