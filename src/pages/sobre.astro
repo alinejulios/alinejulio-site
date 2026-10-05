@@ -3,11 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GeometricCorners from '../components/GeometricCorners.astro';
 import SpeechQuote from '../components/SpeechQuote.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
+import { profilePageNode } from '../data/schema';
 ---
 
 <BaseLayout
   title="Sobre Aline Julio | CRO Specialist e UX Writer"
   description="Trajetória de Aline Julio desde 2019 em dados, SEO e conteúdo, com passagens por Cruzeiro do Sul Educacional, Direcional Engenharia e EducaSEO."
+  schema={[profilePageNode]}
 >
   <!-- CABEÇALHO DA PÁGINA (Fundo Branco Gelo + Elemento Geométrico) -->
   <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">
@@ -31,7 +33,7 @@ import PhosphorIcon from '../components/PhosphorIcon.astro';
 
         <div class="flex-shrink-0 self-center sm:self-auto">
           <img
-            src="/images/sobre/aline-headshot.jpg"
+            src="/images/aline-headshot.jpg"
             alt="Retrato de Aline Julio, CRO Specialist e Estrategista de Marketing"
             width="400"
             height="400"

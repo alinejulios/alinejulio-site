@@ -1,0 +1,20 @@
+---
+import { sharedNodes } from '../data/schema';
+
+interface Props {
+  /** Nós específicos da página, acrescentados ao mesmo @graph */
+  nodes?: object[];
+}
+
+const { nodes = [] } = Astro.props;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [...sharedNodes, ...nodes],
+};
+// Escapa '<' para impedir que um valor futuro contendo "</script>" feche a tag
+// antes da hora (proteção em profundidade; os dados aqui são estáticos hoje).
+const graphJSON = JSON.stringify(graph).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" set:html={graphJSON} />

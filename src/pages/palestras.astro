@@ -3,48 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GeometricCorners from '../components/GeometricCorners.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { palestras } from '../data/palestras';
+import { eventListNode } from '../data/schema';
 
-// Eventos estruturados em JSON-LD para o Google Knowledge Graph
-const eventsSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  'name': 'Palestras e Aulas Ministradas por Aline Julio',
-  'itemListElement': palestras.map((p, idx) => ({
-    '@type': 'ListItem',
-    'position': idx + 1,
-    'item': {
-      '@type': 'EducationEvent',
-      'name': p.titulo,
-      'description': p.descricao,
-      'startDate': p.data,
-      'location': {
-        '@type': 'Place',
-        'name': p.local
-      },
-      'performer': {
-        '@type': 'Person',
-        'name': 'Aline Julio',
-        'sameAs': 'https://www.linkedin.com/in/alinejulio'
-      },
-      'organizer': {
-        '@type': 'Organization',
-        'name': p.eventoOuInstituicao
-      }
-    }
-  }))
-};
-
-// Escapa '<' para impedir que um valor futuro (ex.: título de uma nova palestra)
-// contendo "</script>" feche a tag antes da hora (proteção em profundidade).
-const eventsSchemaJSON = JSON.stringify(eventsSchema).replace(/</g, '\\u003c');
+const schema = [eventListNode(palestras)];
 ---
 
 <BaseLayout
   title="Palestras e aulas de Aline Julio"
   description="Palestras, aulas e mentorias de Aline Julio em CRO, UX Writing e SEO Semântico, no SEOcamp, na EducaSEO e em empresas."
+  schema={schema}
 >
-  <script type="application/ld+json" set:html={eventsSchemaJSON} />
-
   <!-- HEADER DA PÁGINA (Identidade de Consultoria: Assinatura 'Consultoria' e Geometria) -->
   <section class="relative bg-brand-ice pt-12 pb-16 md:pt-20 md:pb-24 border-b border-brand-gray-300/40 overflow-hidden">
     <GeometricCorners composition="B" position="top-right" />
@@ -93,7 +61,7 @@ const eventsSchemaJSON = JSON.stringify(eventsSchema).replace(/</g, '\\u003c');
       <!-- Grid de Aulas e Palestras -->
       <div class="space-y-6">
         {palestras.map((item) => (
-          <article class="p-6 md:p-8 rounded-2xl bg-brand-ice border border-brand-gray-300/50 hover:border-brand-red/40 transition-all duration-200">
+          <article id={item.id} class="p-6 md:p-8 rounded-2xl bg-brand-ice border border-brand-gray-300/50 hover:border-brand-red/40 transition-all duration-200">
             <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
               
               <div class="flex-grow space-y-3">
@@ -102,7 +70,7 @@ const eventsSchemaJSON = JSON.stringify(eventsSchema).replace(/</g, '\\u003c');
                     {item.tipo}
                   </span>
                   <span class="text-xs font-semibold text-brand-gray-700">
-                    {item.data} · {item.local}
+                    <time datetime={item.dataISO}>{item.dataTexto}</time> · {item.localTexto}
                   </span>
                   <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-white text-brand-black border border-brand-gray-300/40">
                     {item.tema}
@@ -114,19 +82,26 @@ const eventsSchemaJSON = JSON.stringify(eventsSchema).replace(/</g, '\\u003c');
                 </h3>
 
                 <p class="text-sm font-semibold text-brand-gray-900">
-                  {item.eventoOuInstituicao}
+                  {item.eventoTexto}
                 </p>
 
-                <p class="text-sm text-brand-gray-700 leading-relaxed pt-1">
-                  {item.descricao}
-                </p>
+                {item.descricao && (
+                  <p class="text-sm text-brand-gray-700 leading-relaxed pt-1">
+                    {item.descricao}
+                  </p>
+                )}
+                {item.topicos && (
+                  <ul class="list-disc pl-5 space-y-1 text-sm text-brand-gray-700 leading-relaxed">
+                    {item.topicos.map((t) => <li>{t}</li>)}
+                  </ul>
+                )}
               </div>
 
               <!-- Ações -->
-              {item.materialPdf && (
+              {item.slides && (
                 <div class="flex-shrink-0 pt-2 md:pt-0">
                   <a
-                    href={item.materialPdf}
+                    href={item.slides.href}
                     download
                     class="inline-flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-white bg-brand-red hover:bg-[#c8191e] transition-colors px-3 py-2 rounded-lg shadow-sm"
                   >

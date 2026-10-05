@@ -5,7 +5,7 @@ import SpeechQuote from '../components/SpeechQuote.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { palestras } from '../data/palestras';
 
-const palestrasDestaque = palestras.filter(p => p.destaque).slice(0, 3);
+const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
 ---
 
 <BaseLayout
@@ -248,13 +248,13 @@ const palestrasDestaque = palestras.filter(p => p.destaque).slice(0, 3);
             <div>
               <div class="flex items-center justify-between text-xs text-brand-gray-700 mb-3">
                 <span class="font-bold text-brand-red uppercase">{item.tipo}</span>
-                <span>{item.data}</span>
+                <time datetime={item.dataISO}>{item.dataTexto}</time>
               </div>
               <h3 class="text-lg font-bold text-brand-black mb-2 leading-snug">
                 {item.titulo}
               </h3>
               <p class="text-xs text-brand-gray-700 mb-4 font-medium">
-                {item.eventoOuInstituicao}
+                {item.eventoTexto}
               </p>
               <p class="text-xs text-brand-gray-500 line-clamp-3 leading-relaxed">
                 {item.descricao}
