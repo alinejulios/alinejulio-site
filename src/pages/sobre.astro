@@ -126,6 +126,8 @@ const fotos = [
       </div>
 
       <!-- Linha do tempo -->
+      <!-- Aviso de nova aba fora dos H3: os links o leem via aria-describedby, sem entrar no texto do título -->
+      <span id="aviso-nova-aba" hidden>Abre em nova aba</span>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
         {linhas.map((linha) => (
           <div>
@@ -137,7 +139,7 @@ const fotos = [
                   <p class="text-sm font-semibold text-brand-gray-700">{item.periodo}</p>
                   <h3 class="text-lg font-bold leading-snug text-brand-black">
                     {item.url ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-link inline-flex min-h-11 items-center gap-1.5">
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" aria-describedby="aviso-nova-aba" class="text-link inline-flex min-h-11 items-center gap-1.5">
                         <span>{item.org}</span>
                         <PhosphorIcon name="arrow-up-right" size={16} />
                       </a>
