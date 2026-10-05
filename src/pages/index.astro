@@ -15,18 +15,18 @@ const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
   description="Desde 2019, Aline Julio une análise de dados, SEO On-Page e gestão de conteúdo em projetos B2B e B2C, com palestras e mentorias em UX Writing e SEO."
 >
   <!-- HERO (branco gelo + composição geométrica de canto) -->
-  <section class="relative overflow-hidden border-b border-brand-gray-300 bg-brand-ice pb-20 pt-12 md:pb-28 md:pt-20">
+  <section class="relative overflow-hidden border-b border-brand-gray-300 bg-brand-ice pb-12 pt-8 sm:pb-16 sm:pt-12 md:pb-24 md:pt-20">
     <GeometricCorners composition="B" position="top-right" />
 
-    <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <p class="badge badge-outline mb-6">CRO Specialist · Estrategista de Marketing</p>
+    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:gap-16 lg:px-8">
+      <div>
+        <p class="badge badge-outline mb-5 sm:mb-6">CRO Specialist · Estrategista de Marketing</p>
 
-        <h1 class="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-black sm:text-5xl lg:text-6xl">
+        <h1 class="mb-5 text-[30px] font-extrabold leading-[1.1] tracking-tight text-brand-black min-[375px]:text-4xl sm:mb-6 sm:text-5xl md:text-4xl lg:text-5xl xl:text-[56px]">
           Onde dados, usabilidade e gestão de conteúdo se unem para <span class="text-brand-red">gerar resultados</span>
         </h1>
 
-        <p class="mb-8 text-lg leading-relaxed text-brand-gray-700 sm:text-xl">
+        <p class="mb-6 text-base leading-relaxed text-brand-gray-700 sm:mb-8 sm:text-lg lg:text-xl">
           Mais de 7 anos de experiência unindo <strong>análise de dados</strong>, <strong>SEO On-Page</strong> e <strong>gestão de conteúdo</strong>. Atuação em projetos B2B e B2C, além de palestras e mentorias em UX Writing, SEO Semântico e Estratégia de Conteúdo com foco em KPIs.
         </p>
 
@@ -42,6 +42,17 @@ const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
             <PhosphorIcon name="arrow-right" size={20} />
           </a>
         </div>
+      </div>
+
+      <div class="hidden md:block">
+        <img
+          src="/images/sobre/aline-palco.jpg"
+          alt="Aline Julio no palco do SEOcamp, diante do slide O que é sucesso em CRO?"
+          width="600"
+          height="600"
+          fetchpriority="high"
+          class="aspect-square w-full rounded-md border border-brand-gray-300 object-cover"
+        />
       </div>
     </div>
   </section>
@@ -157,13 +168,13 @@ const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
         </a>
       </div>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {palestrasDestaque.map((item) => (
           <article class="card flex flex-col justify-between p-6">
             <div>
-              <div class="mb-3 flex items-center justify-between text-xs text-brand-gray-700">
-                <span class="font-bold uppercase text-brand-red">{item.tipo}</span>
-                <time datetime={item.dataISO}>{item.dataTexto}</time>
+              <div class="mb-3 flex flex-col gap-1 text-sm">
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-red">{item.tipo}</span>
+                <time datetime={item.dataISO} class="text-brand-gray-700">{item.dataTexto}</time>
               </div>
               <h3 class="mb-2 text-lg font-bold leading-snug text-brand-black">{item.titulo}</h3>
               <p class="mb-4 text-sm font-medium text-brand-gray-700">{item.eventoTexto}</p>
