@@ -20,11 +20,11 @@ const palestrasRecentes = palestras.filter((p) => p.publico).slice(0, 3);
   <section class="relative overflow-hidden border-b border-brand-gray-300 bg-brand-ice pb-12 pt-8 sm:pb-16 sm:pt-12 md:pb-24 md:pt-20">
     <GeometricCorners composition="B" position="top-right" />
 
-    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:gap-16 lg:px-8">
-      <div>
+    <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
         <p class="badge badge-outline mb-5 sm:mb-6">CRO Specialist · Content Designer · UX Writer</p>
 
-        <h1 class="mb-5 text-[30px] font-extrabold leading-[1.1] tracking-tight text-brand-black min-[375px]:text-4xl sm:mb-6 sm:text-5xl md:text-4xl lg:text-5xl xl:text-[56px]">
+        <h1 class="mb-5 text-[30px] font-extrabold leading-[1.1] tracking-tight text-brand-black min-[375px]:text-4xl sm:mb-6 sm:text-5xl lg:text-[56px]">
           Encontro onde seu site perde conversões e reescrevo o caminho até o clique
         </h1>
 
@@ -50,17 +50,6 @@ const palestrasRecentes = palestras.filter((p) => p.publico).slice(0, 3);
           {' '}<span aria-hidden="true">·</span>{' '}
           Professora na <a href={LINKS.educaseo} target="_blank" rel="noopener noreferrer" class="text-link inline-block py-3">EducaSEO<span class="sr-only"> (abre em nova aba)</span></a>
         </p>
-      </div>
-
-      <div class="hidden md:block">
-        <img
-          src="/images/sobre/aline-palco.jpg"
-          alt="Aline Julio palestrando com microfone no palco do SEOcamp, ao lado do slide “O que é sucesso em CRO?”"
-          width="800"
-          height="800"
-          fetchpriority="high"
-          class="aspect-square w-full rounded-md border border-brand-gray-300 object-cover"
-        />
       </div>
     </div>
   </section>
