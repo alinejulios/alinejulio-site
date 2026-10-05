@@ -11,6 +11,6 @@ const { variant = 'light', class: className = '' } = Astro.props;
 const src = variant === 'dark' ? '/images/logo-horizontal-white.svg' : '/images/logo-horizontal-red.svg';
 ---
 
-<a href="/" class={`inline-flex items-center ${className}`} aria-label="Aline Julio, página inicial">
+<a href="/" class={`inline-flex min-h-11 items-center ${className}`} aria-label="Aline Julio, página inicial">
   <img src={src} alt="" width="286" height="67" class="h-10 w-auto md:h-11" />
 </a>
