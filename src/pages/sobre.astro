@@ -68,9 +68,9 @@ const linhas = [
 ];
 
 const fotos = [
-  { src: '/images/sobre/aline-palco.jpg', alt: 'Aline Julio palestrando sobre CRO no SEOcamp', legenda: 'Palestra no SEOcamp' },
-  { src: '/images/sobre/aline-seocamp.jpg', alt: 'Aline Julio no SEOcamp, maior comunidade de SEO do Brasil', legenda: 'SEOcamp São Paulo' },
-  { src: '/images/sobre/aline-laptop.jpg', alt: 'Aline Julio trabalhando em notebook', legenda: 'Rotina de trabalho' },
+  { src: '/images/sobre/aline-palco.jpg', alt: 'Aline Julio palestrando com microfone no palco do SEOcamp, ao lado do slide “O que é sucesso em CRO?”' },
+  { src: '/images/sobre/aline-seocamp.jpg', alt: 'Aline Julio, com crachá do evento, diante do painel do SEOcamp “Eu faço parte da maior comunidade de SEO do Brasil”' },
+  { src: '/images/sobre/aline-laptop.jpg', alt: 'Aline Julio sorrindo, sentada com um notebook no colo diante de uma parede de plantas' },
 ];
 ---
 
@@ -157,10 +157,7 @@ const fotos = [
       <!-- Galeria -->
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4">
         {fotos.map((foto) => (
-          <figure class="m-0">
-            <img src={foto.src} alt={foto.alt} width="600" height="600" loading="lazy" class="aspect-square w-full rounded-md border border-brand-gray-300 object-cover" />
-            <figcaption class="mt-2 text-sm text-brand-gray-700">{foto.legenda}</figcaption>
-          </figure>
+          <img src={foto.src} alt={foto.alt} width="800" height="800" loading="lazy" class="aspect-square w-full rounded-md border border-brand-gray-300 object-cover" />
         ))}
       </div>
 
