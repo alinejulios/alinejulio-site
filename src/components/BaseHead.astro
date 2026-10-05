@@ -14,6 +14,7 @@ interface Props {
   description?: string;
   image?: string;
   canonicalUrl?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   description = DESCRICAO_3A_PESSOA,
   image = OG_IMAGE,
   canonicalUrl = new URL(Astro.url.pathname, Astro.site).href,
+  noindex = false,
 } = Astro.props;
 
 const siteTitle = title.includes('Aline Julio') ? title : `${title} | Aline Julio`;
@@ -43,7 +45,7 @@ const fontFaceCSS = fontFaces
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="canonical" href={canonicalUrl} />
+{!noindex && <link rel="canonical" href={canonicalUrl} />}
 <meta name="generator" content={Astro.generator} />
 
 <!-- Preload dos pesos mais usados acima da dobra (corpo de texto e títulos) -->
@@ -63,7 +65,7 @@ const fontFaceCSS = fontFaces
 <meta name="title" content={siteTitle} />
 <meta name="description" content={description} />
 <meta name="author" content="Aline Julio" />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
 
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website" />

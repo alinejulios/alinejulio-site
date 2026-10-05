@@ -1,0 +1,57 @@
+---
+// "O que eu faço": o mesmo par de frentes em Início e Sobre.
+import PhosphorIcon from './PhosphorIcon.astro';
+import { CTA } from '../data/contato';
+
+interface Props {
+  /** Nível do título dos cards (h3 por padrão) */
+  headingLevel?: 'h3' | 'h4';
+}
+
+const { headingLevel: H = 'h3' } = Astro.props;
+---
+
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+  <div class="card flex flex-col justify-between p-6 sm:p-8">
+    <div>
+      <span class="tag mb-4">Consultoria</span>
+      <H class="mb-4 text-2xl font-extrabold text-brand-black">Consultoria estratégica em dados, UX e conversão</H>
+      <p class="mb-6 text-base leading-relaxed text-brand-gray-700">
+        Diagnóstico de pontos de atrito na jornada do usuário, arquitetura de informação e formulação de hipóteses de testes para elevar métricas de negócio.
+      </p>
+      <ul class="space-y-3 text-base text-brand-gray-700">
+        <li class="flex items-start gap-2"><PhosphorIcon name="check-circle" size={20} class="mt-0.5 text-brand-red" /><span>Otimização de Taxa de Conversão (CRO)</span></li>
+        <li class="flex items-start gap-2"><PhosphorIcon name="check-circle" size={20} class="mt-0.5 text-brand-red" /><span>UX Writing e clareza de microcopy</span></li>
+        <li class="flex items-start gap-2"><PhosphorIcon name="check-circle" size={20} class="mt-0.5 text-brand-red" /><span>SEO On-Page e Semântico estruturado para entidades</span></li>
+      </ul>
+    </div>
+    <div class="mt-8 border-t border-brand-gray-300 pt-6">
+      <a href={CTA.consultoria.href} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <span>{CTA.consultoria.label}</span>
+        <PhosphorIcon name="arrow-up-right" size={20} />
+        <span class="sr-only"> (abre em nova aba)</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="card flex flex-col justify-between p-6 sm:p-8">
+    <div>
+      <span class="tag mb-4">Palestras e mentorias</span>
+      <H class="mb-4 text-2xl font-extrabold text-brand-black">Materiais autorais em CRO, UX e SEO</H>
+      <p class="mb-6 text-base leading-relaxed text-brand-gray-700">
+        Palestras, aulas e mentorias construídas com frameworks próprios, apresentados no SEOcamp e na EducaSEO e ligados a casos reais e a métricas de negócio.
+      </p>
+      <ul class="space-y-3 text-base text-brand-gray-700">
+        <li class="flex items-start gap-2"><PhosphorIcon name="check-circle" size={20} class="mt-0.5 text-brand-red" /><span>Frameworks próprios, validados em palestras e formações</span></li>
+        <li class="flex items-start gap-2"><PhosphorIcon name="check-circle" size={20} class="mt-0.5 text-brand-red" /><span>Estudos de caso reais e exercícios práticos</span></li>
+        <li class="flex items-start gap-2"><PhosphorIcon name="check-circle" size={20} class="mt-0.5 text-brand-red" /><span>Conteúdo direto e didático, testado com públicos técnicos</span></li>
+      </ul>
+    </div>
+    <div class="mt-8 border-t border-brand-gray-300 pt-6">
+      <a href="/palestras/" class="btn btn-secondary">
+        <span>Ver palestras e aulas</span>
+        <PhosphorIcon name="arrow-right" size={20} />
+      </a>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ const cleanPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
 const navLinks = [
   { href: '/', label: 'Início' },
   { href: '/sobre/', label: 'Sobre' },
-  { href: '/palestras/', label: 'Palestras & Aulas' },
+  { href: '/palestras/', label: 'Palestras e aulas' },
 ];
 
 const isActive = (href: string) => (href === '/' ? cleanPath === '/' : cleanPath.startsWith(href));

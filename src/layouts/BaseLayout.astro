@@ -12,15 +12,16 @@ interface Props {
   image?: string;
   /** Nós JSON-LD específicos da página (ProfilePage, ItemList etc.) */
   schema?: object[];
+  noindex?: boolean;
 }
 
-const { title, description, image, schema } = Astro.props;
+const { title, description, image, schema, noindex } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} noindex={noindex} />
     <SchemaGraph nodes={schema} />
   </head>
   <body class="flex min-h-screen flex-col bg-brand-ice font-sans text-brand-black antialiased selection:bg-brand-red selection:text-white">

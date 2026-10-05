@@ -2,12 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GeometricCorners from '../components/GeometricCorners.astro';
 import SectionLabel from '../components/SectionLabel.astro';
-import Quote from '../components/Quote.astro';
+import FrentesAtuacao from '../components/FrentesAtuacao.astro';
 import CTABlock from '../components/CTABlock.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { palestras } from '../data/palestras';
+import { DESCRICAO_1A_PESSOA, LINKS } from '../data/site';
+import { CTA } from '../data/contato';
 
-const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
+const palestrasRecentes = palestras.filter((p) => p.publico).slice(0, 3);
 ---
 
 <BaseLayout
@@ -20,28 +22,34 @@ const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
 
     <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:gap-16 lg:px-8">
       <div>
-        <p class="badge badge-outline mb-5 sm:mb-6">CRO Specialist · Estrategista de Marketing</p>
+        <p class="badge badge-outline mb-5 sm:mb-6">CRO Specialist · Content Designer · UX Writer</p>
 
         <h1 class="mb-5 text-[30px] font-extrabold leading-[1.1] tracking-tight text-brand-black min-[375px]:text-4xl sm:mb-6 sm:text-5xl md:text-4xl lg:text-5xl xl:text-[56px]">
-          Onde dados, usabilidade e gestão de conteúdo se unem para <span class="text-brand-red">gerar resultados</span>
+          Encontro onde seu site perde conversões e reescrevo o caminho até o clique
         </h1>
 
         <p class="mb-6 text-base leading-relaxed text-brand-gray-700 sm:mb-8 sm:text-lg lg:text-xl">
-          Mais de 7 anos de experiência unindo <strong>análise de dados</strong>, <strong>SEO On-Page</strong> e <strong>gestão de conteúdo</strong>. Atuação em projetos B2B e B2C, além de palestras e mentorias em UX Writing, SEO Semântico e Estratégia de Conteúdo com foco em KPIs.
+          {DESCRICAO_1A_PESSOA}
         </p>
 
         <div class="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
-          <a href="https://www.linkedin.com/in/alinejulio" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <PhosphorIcon name="linkedin-logo" size={20} />
-            <span>Conectar no LinkedIn</span>
+          <a href={CTA.consultoria.href} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>{CTA.consultoria.label}</span>
             <PhosphorIcon name="arrow-up-right" size={20} />
             <span class="sr-only"> (abre em nova aba)</span>
           </a>
           <a href="/palestras/" class="btn btn-secondary">
-            <span>Ver Palestras & Aulas</span>
+            <span>Ver palestras e aulas</span>
             <PhosphorIcon name="arrow-right" size={20} />
           </a>
         </div>
+
+        <!-- Credenciais -->
+        <p class="mt-6 text-sm font-medium text-brand-black">
+          Palestrante no <a href={LINKS.seocamp} target="_blank" rel="noopener noreferrer" class="text-link inline-block py-3">SEOcamp<span class="sr-only"> (abre em nova aba)</span></a>
+          <span aria-hidden="true">·</span>
+          Professora na <a href={LINKS.educaseo} target="_blank" rel="noopener noreferrer" class="text-link inline-block py-3">EducaSEO<span class="sr-only"> (abre em nova aba)</span></a>
+        </p>
       </div>
 
       <div class="hidden md:block">
@@ -57,142 +65,55 @@ const palestrasDestaque = palestras.filter((p) => p.publico).slice(0, 3);
     </div>
   </section>
 
-  <!-- POSICIONAMENTO -->
-  <section class="border-b border-brand-gray-300 bg-white py-16 md:py-24">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <SectionLabel tone="white">Posicionamento</SectionLabel>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-black">Como eu tomo decisões e trabalho</h2>
-      </div>
-
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="card p-6">
-          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-brand-ice text-brand-red"><PhosphorIcon name="chart-line-up" size={24} /></div>
-          <h3 class="mb-2 text-lg font-bold text-brand-black">Analítica</h3>
-          <p class="text-sm leading-relaxed text-brand-gray-700">Decido com base em dados de navegação, comportamento do usuário e testes A/B, não em achismo.</p>
-        </div>
-        <div class="card p-6">
-          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-brand-ice text-brand-red"><PhosphorIcon name="chat-teardrop-text" size={24} /></div>
-          <h3 class="mb-2 text-lg font-bold text-brand-black">Autêntica</h3>
-          <p class="text-sm leading-relaxed text-brand-gray-700">Falo com voz própria. Elimino fórmulas genéricas de marketing para construir autoridade real.</p>
-        </div>
-        <div class="card p-6">
-          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-brand-ice text-brand-red"><PhosphorIcon name="check-circle" size={24} /></div>
-          <h3 class="mb-2 text-lg font-bold text-brand-black">Direta</h3>
-          <p class="text-sm leading-relaxed text-brand-gray-700">Comunico com clareza e objetividade técnica. Sem rodeios ou jargões vazios.</p>
-        </div>
-        <div class="card p-6">
-          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-brand-ice text-brand-red"><PhosphorIcon name="magnifying-glass" size={24} /></div>
-          <h3 class="mb-2 text-lg font-bold text-brand-black">Estratégica</h3>
-          <p class="text-sm leading-relaxed text-brand-gray-700">Uno visão de negócios ao domínio técnico em UX, SEO On-Page e Otimização de Conversão.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FRENTES DE ATUAÇÃO -->
+  <!-- O QUE EU FAÇO -->
   <section class="border-b border-brand-gray-300 bg-brand-ice py-16 md:py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl">
         <SectionLabel>Atuação</SectionLabel>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-black">
-          Duas frentes complementares — uma só voz por trás
-        </h2>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-black">O que eu faço</h2>
       </div>
-
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-        <div class="card flex flex-col justify-between p-8">
-          <div>
-            <span class="tag mb-4">CRO · UX · Content</span>
-            <h3 class="mb-4 text-2xl font-extrabold text-brand-black">Consultoria Estratégica em Dados, UX e Conversão</h3>
-            <p class="mb-6 text-sm leading-relaxed text-brand-gray-700">
-              Diagnóstico detalhado de pontos de atrito na jornada do usuário, arquitetura de informação e formulação de hipóteses de testes para elevar métricas de negócio.
-            </p>
-            <ul class="space-y-3 text-sm text-brand-gray-700">
-              <li class="flex items-center gap-2"><PhosphorIcon name="check-circle" size={20} class="text-brand-red" /><span>Otimização de Taxa de Conversão (CRO)</span></li>
-              <li class="flex items-center gap-2"><PhosphorIcon name="check-circle" size={20} class="text-brand-red" /><span>UX Writing e clareza de microcopy</span></li>
-              <li class="flex items-center gap-2"><PhosphorIcon name="check-circle" size={20} class="text-brand-red" /><span>SEO On-Page & Semântico estruturado para entidades</span></li>
-            </ul>
-          </div>
-          <div class="mt-8 border-t border-brand-gray-300 pt-6">
-            <a href="https://www.linkedin.com/in/alinejulio" target="_blank" rel="noopener noreferrer" class="text-link inline-flex min-h-11 items-center gap-2 text-sm text-brand-red">
-              <span>Conversar sobre consultoria</span>
-              <PhosphorIcon name="arrow-up-right" size={16} />
-              <span class="sr-only"> (abre em nova aba)</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="card flex flex-col justify-between p-8">
-          <div>
-            <span class="tag mb-4">Docência & Palestras</span>
-            <h3 class="mb-4 text-2xl font-extrabold text-brand-black">Materiais Autorais em CRO, UX e SEO</h3>
-            <p class="mb-6 text-sm leading-relaxed text-brand-gray-700">
-              Palestras, aulas e mentorias construídas com frameworks próprios, testados no SEOcamp e na EducaSEO, sempre ligados a casos reais e a métricas de negócio.
-            </p>
-            <ul class="space-y-3 text-sm text-brand-gray-700">
-              <li class="flex items-center gap-2"><PhosphorIcon name="check-circle" size={20} class="text-brand-red" /><span>Frameworks próprios, validados em palestras e formações</span></li>
-              <li class="flex items-center gap-2"><PhosphorIcon name="check-circle" size={20} class="text-brand-red" /><span>Estudos de caso reais e exercícios práticos</span></li>
-              <li class="flex items-center gap-2"><PhosphorIcon name="check-circle" size={20} class="text-brand-red" /><span>Conteúdo direto e didático, testado com públicos técnicos</span></li>
-            </ul>
-          </div>
-          <div class="mt-8 border-t border-brand-gray-300 pt-6">
-            <a href="/palestras/" class="text-link inline-flex min-h-11 items-center gap-2 text-sm text-brand-red">
-              <span>Explorar histórico de palestras</span>
-              <PhosphorIcon name="arrow-right" size={16} />
-            </a>
-          </div>
-        </div>
-      </div>
+      <FrentesAtuacao />
     </div>
   </section>
 
-  <!-- CITAÇÃO -->
-  <section class="bg-white py-12">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
-      <Quote attribution="Aline Julio">Conteúdo autêntico não é sobre soar perfeito — é sobre soar como você.</Quote>
-    </div>
-  </section>
-
-  <!-- PALESTRAS EM DESTAQUE -->
-  <section class="border-y border-brand-gray-300 bg-brand-ice py-16 md:py-24">
+  <!-- PALESTRAS RECENTES -->
+  <section class="border-b border-brand-gray-300 bg-white py-16 md:py-24">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <SectionLabel>Docência & Eventos</SectionLabel>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-black">Aulas e Palestras Recentes</h2>
+          <SectionLabel tone="white">Docência & Eventos</SectionLabel>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-brand-black">Aulas e palestras recentes</h2>
         </div>
         <a href="/palestras/" class="text-link inline-flex min-h-11 items-center gap-2 text-sm text-brand-black">
-          <span>Ver todas as participações</span>
+          <span>Ver palestras e aulas</span>
           <PhosphorIcon name="arrow-right" size={16} />
         </a>
       </div>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {palestrasDestaque.map((item) => (
-          <article class="card flex flex-col justify-between p-6">
-            <div>
-              <div class="mb-3 flex flex-col gap-1 text-sm">
-                <span class="text-xs font-bold uppercase tracking-wider text-brand-red">{item.tipo}</span>
-                <time datetime={item.dataISO} class="text-brand-gray-700">{item.dataTexto}</time>
+      <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {palestrasRecentes.map((item) => (
+          <li class="flex">
+            <a href={`/palestras/#${item.id}`} class="card flex w-full flex-col justify-between p-6">
+              <div>
+                <div class="mb-3 flex flex-col gap-1 text-sm">
+                  <span class="text-xs font-bold uppercase tracking-wider text-brand-red">{item.tipo}</span>
+                  <time datetime={item.dataISO} class="text-brand-gray-700">{item.dataTexto}</time>
+                </div>
+                <h3 class="mb-2 text-lg font-bold leading-snug text-brand-black">{item.titulo}</h3>
+                <p class="mb-4 text-sm font-medium text-brand-gray-700">{item.eventoTexto}</p>
+                <p class="line-clamp-3 text-sm leading-relaxed text-brand-gray-700">{item.descricao}</p>
               </div>
-              <h3 class="mb-2 text-lg font-bold leading-snug text-brand-black">{item.titulo}</h3>
-              <p class="mb-4 text-sm font-medium text-brand-gray-700">{item.eventoTexto}</p>
-              <p class="line-clamp-3 text-sm leading-relaxed text-brand-gray-700">{item.descricao}</p>
-            </div>
-            <div class="mt-6 border-t border-brand-gray-300 pt-4">
-              <span class="tag">{item.tema}</span>
-            </div>
-          </article>
+              <div class="mt-6 border-t border-brand-gray-300 pt-4">
+                <span class="tag">{item.tema}</span>
+              </div>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   </section>
 
-  <CTABlock
-    title="Vamos falar sobre dados, conversão e conteúdo?"
-    primary={{ label: 'Acompanhar no LinkedIn', href: 'https://www.linkedin.com/in/alinejulio', external: true }}
-  >
-    Acompanhe minhas análises e reflexões técnicas no LinkedIn ou entre em contato para convites de palestras, aulas e consultoria.
+  <CTABlock title="Vamos falar sobre dados, conversão e conteúdo?" primary={CTA.consultoria} secondary={CTA.palestra}>
+    Fale comigo sobre consultoria ou convites para palestras, aulas e mentorias.
   </CTABlock>
 </BaseLayout>

@@ -6,6 +6,7 @@ import CTABlock from '../components/CTABlock.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { palestras } from '../data/palestras';
 import { eventListNode } from '../data/schema';
+import { CTA } from '../data/contato';
 
 const schema = [eventListNode(palestras)];
 ---
@@ -23,11 +24,11 @@ const schema = [eventListNode(palestras)];
       <SectionLabel class="mb-4">Docência & Comunidade</SectionLabel>
 
       <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-brand-black sm:text-5xl">
-        Palestras, Aulas e <span class="text-brand-red">Mentorias</span>
+        Palestras, aulas e <span class="text-brand-red">mentorias</span>
       </h1>
 
       <p class="max-w-2xl text-lg leading-relaxed text-brand-gray-700 sm:text-xl">
-        Compartilhando vivência prática de mercado em eventos do setor, universidades e programas de aceleração em CRO, UX Writing e SEO Semântico.
+        Palestras, aulas e mentorias em CRO, UX Writing e SEO Semântico para eventos, empresas e universidades.
       </p>
     </div>
   </section>
@@ -37,26 +38,26 @@ const schema = [eventListNode(palestras)];
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 flex flex-col justify-between gap-4 border-b border-brand-gray-300 pb-6 sm:flex-row sm:items-center">
         <div>
-          <h2 class="text-2xl font-extrabold tracking-tight text-brand-black">Histórico de Participações</h2>
+          <h2 class="text-2xl font-extrabold tracking-tight text-brand-black">Histórico de palestras e aulas</h2>
           <p class="mt-1 text-sm text-brand-gray-700">
             Formatos voltados para capacitação prática e debate aprofundado com foco em dados e usabilidade.
           </p>
         </div>
-        <a href="https://www.linkedin.com/in/alinejulio" target="_blank" rel="noopener noreferrer" class="btn btn-primary shrink-0 whitespace-nowrap text-sm">
-          <PhosphorIcon name="linkedin-logo" size={20} />
-          <span>Convidar para palestra</span>
+        <a href={CTA.palestra.href} target="_blank" rel="noopener noreferrer" class="btn btn-primary shrink-0 whitespace-nowrap text-sm">
+          <span>{CTA.palestra.label}</span>
+          <PhosphorIcon name="arrow-up-right" size={20} />
           <span class="sr-only"> (abre em nova aba)</span>
         </a>
       </div>
 
       <div class="space-y-6">
         {palestras.map((item) => (
-          <article id={item.id} class="card p-6 md:p-8">
+          <article id={item.id} class="card scroll-mt-28 p-6 md:p-8">
             <div class="flex flex-col justify-between gap-4 md:flex-row md:items-start">
               <div class="grow space-y-3">
                 <div class="flex flex-wrap items-center gap-3">
                   <span class="badge badge-red">{item.tipo}</span>
-                  <span class="text-xs font-semibold text-brand-gray-700">
+                  <span class="text-sm font-semibold text-brand-gray-700">
                     <time datetime={item.dataISO}>{item.dataTexto}</time> · {item.localTexto}
                   </span>
                   <span class="tag">{item.tema}</span>
@@ -65,19 +66,45 @@ const schema = [eventListNode(palestras)];
                 <h3 class="text-xl font-extrabold leading-snug tracking-tight text-brand-black md:text-2xl">{item.titulo}</h3>
                 <p class="text-sm font-semibold text-brand-black">{item.eventoTexto}</p>
 
-                {item.descricao && <p class="pt-1 text-sm leading-relaxed text-brand-gray-700">{item.descricao}</p>}
+                {item.coautoras && (
+                  <p class="text-sm text-brand-black">
+                    Com{' '}
+                    {item.coautoras.map((c, i) => (
+                      <>
+                        {i > 0 && (i === item.coautoras!.length - 1 ? ' e ' : ', ')}
+                        <a href={c.linkedin} target="_blank" rel="noopener noreferrer" class="text-link inline-block py-3">
+                          {c.nome}<span class="sr-only"> (LinkedIn, abre em nova aba)</span>
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+
+                {item.descricao && <p class="pt-1 text-base leading-relaxed text-brand-gray-700">{item.descricao}</p>}
                 {item.topicos && (
-                  <ul class="list-disc space-y-1 pl-5 text-sm leading-relaxed text-brand-gray-700">
+                  <ul class="list-disc space-y-2 pl-5 text-base leading-relaxed text-brand-gray-700">
                     {item.topicos.map((t) => <li>{t}</li>)}
                   </ul>
+                )}
+
+                {(item.linkComplementar || item.publicacao) && (
+                  <p>
+                    {[item.linkComplementar, item.publicacao].filter(Boolean).map((l) => (
+                      <a href={l!.href} target="_blank" rel="noopener noreferrer" class="text-link inline-flex min-h-11 items-center gap-1.5 text-sm text-brand-black">
+                        <span>{l!.rotulo}</span>
+                        <PhosphorIcon name="arrow-up-right" size={16} />
+                        <span class="sr-only"> (abre em nova aba)</span>
+                      </a>
+                    ))}
+                  </p>
                 )}
               </div>
 
               {item.slides && (
                 <div class="shrink-0 pt-2 md:pt-0">
-                  <a href={item.slides.href} download class="btn btn-primary px-4 text-sm">
+                  <a href={item.slides.href} download class="btn btn-secondary px-4 text-sm">
                     <PhosphorIcon name="download-simple" size={20} />
-                    <span>Baixar Material</span>
+                    <span>Baixar slides (PDF, {item.slides.tamanho})</span>
                   </a>
                 </div>
               )}
@@ -88,10 +115,7 @@ const schema = [eventListNode(palestras)];
     </div>
   </section>
 
-  <CTABlock
-    title="Deseja uma palestra ou mentoria para sua equipe ou evento?"
-    primary={{ label: 'Falar com Aline no LinkedIn', href: 'https://www.linkedin.com/in/alinejulio', external: true }}
-  >
+  <CTABlock title="Quer levar uma palestra ou mentoria para sua equipe?" primary={CTA.palestra} secondary={CTA.linkedin}>
     Estruturo apresentações e treinamentos sob medida em CRO, UX Writing e SEO Semântico, com estudos de caso reais e exercícios práticos.
   </CTABlock>
 </BaseLayout>
