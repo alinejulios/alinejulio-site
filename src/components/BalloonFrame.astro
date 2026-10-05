@@ -1,0 +1,39 @@
+---
+// Moldura de foto no formato do balão do ícone oficial (sem redesenhar: são os
+// mesmos pontos do <g id="Balão"> de public/images/icone-logo.svg, já com a
+// transformação do arquivo aplicada e normalizados para o próprio contorno).
+// A foto é recortada pelo contorno externo e o anel do balão fica por cima,
+// em vermelho. A proporção 826:930 do balão é mantida, para não distorcer a forma.
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const { src, alt, width, height, loading = 'lazy', class: className = '' } = Astro.props;
+
+const OUTER = '824.0,176.3 826.2,782.0 302.7,827.8 303.3,930.0 0.3,664.8 0.0,61.1 598.8,0.0';
+const INNER = '802.1,187.0 592.3,22.8 22.0,81.0 22.3,654.8 281.0,881.3 280.6,807.6 804.1,761.8';
+---
+
+<div class={`balloon-frame relative aspect-[826/930] ${className}`}>
+  <img src={src} alt={alt} width={width} height={height} loading={loading} class="h-full w-full object-cover" />
+  <svg
+    class="pointer-events-none absolute inset-0 h-full w-full text-brand-red"
+    viewBox="0 0 826.2 930"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path fill="currentColor" fill-rule="evenodd" d={`M${OUTER}Z M${INNER}Z`} />
+  </svg>
+</div>
+
+<style>
+  .balloon-frame {
+    clip-path: polygon(99.74% 18.95%, 100% 84.08%, 36.64% 89%, 36.71% 100%, 0.04% 71.48%, 0% 6.57%, 72.49% 0%);
+  }
+</style>
