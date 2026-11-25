@@ -4,7 +4,7 @@ import GeometricCorners from '../components/GeometricCorners.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import CTABlock from '../components/CTABlock.astro';
 import PhosphorIcon from '../components/PhosphorIcon.astro';
-import { palestras } from '../data/palestras';
+import { palestras, docenciaProxima } from '../data/palestras';
 import { eventListNode } from '../data/schema';
 import { CTA } from '../data/contato';
 
@@ -13,7 +13,7 @@ const schema = [eventListNode(palestras)];
 
 <BaseLayout
   title="Palestras e aulas de Aline Julio"
-  description="Palestras, aulas e mentorias de Aline Julio em CRO, UX Writing e SEO Semântico, no SEOcamp, na EducaSEO e em empresas."
+  description="Palestras, aulas e mentorias de Aline Julio em CRO, UX Writing e SEO Semântico, no SEOcamp, na Educa e em empresas."
   schema={schema}
 >
   <!-- CABEÇALHO -->
@@ -49,6 +49,24 @@ const schema = [eventListNode(palestras)];
           <span class="sr-only"> (abre em nova aba)</span>
         </a>
       </div>
+
+      <!-- Próxima docência: logo abaixo do título do histórico, antes dos cards -->
+      <article aria-labelledby="proxima-docencia" class="card mb-6 p-6 md:p-8">
+        <div class="mb-3 flex flex-wrap items-center gap-3">
+          <span class="badge badge-red">Em {docenciaProxima.ano}</span>
+          <span class="text-sm font-semibold text-brand-gray-700">Pós-graduação · {docenciaProxima.instituicao.nome}</span>
+        </div>
+        <h3 id="proxima-docencia" class="mb-2 text-xl font-extrabold leading-snug tracking-tight text-brand-black md:text-2xl">{docenciaProxima.curso}</h3>
+        <p class="mb-6 text-base text-brand-gray-700">Módulos em que serei docente:</p>
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {docenciaProxima.modulos.map((m) => (
+            <li class="border-l-2 border-brand-red pl-4">
+              <p class="text-base font-bold text-brand-black"><span class="text-brand-red">{m.codigo}</span> · {m.titulo}</p>
+              <p class="mt-1 text-sm leading-relaxed text-brand-gray-700">{m.texto}</p>
+            </li>
+          ))}
+        </ul>
+      </article>
 
       <div class="space-y-6">
         {palestras.map((item) => (

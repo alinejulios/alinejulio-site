@@ -41,7 +41,7 @@ export const sharedNodes = [
     ],
     worksFor: [
       { '@type': 'Organization', name: 'Direcional Engenharia' },
-      { '@type': 'Organization', name: 'EducaSEO', url: 'https://educaseo.com.br/' },
+      { '@type': 'Organization', name: 'Educa', url: 'https://educaseo.com.br/' },
     ],
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'Universidade Cruzeiro do Sul', sameAs: 'https://www.wikidata.org/wiki/Q10387785' },

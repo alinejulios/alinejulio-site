@@ -16,7 +16,7 @@ export interface PalestraItem {
   /** Âncora em /palestras/#<id> e sufixo do @id no JSON-LD */
   id: string;
   titulo: string;
-  tipo: 'Palestra' | 'Aula' | 'Mentoria' | 'Workshop';
+  tipo: 'Palestra' | 'Aula' | 'Mentoria' | 'Workshop' | 'Bate-papo';
   tema: string;
   /** ISO 8601; só ano e mês quando o dia não é conhecido */
   dataISO: string;
@@ -46,9 +46,28 @@ export interface PalestraItem {
 }
 
 const SEOCAMP = { nome: 'SEOcamp', url: 'https://seocamp.com.br/' };
-const EDUCASEO = { nome: 'EducaSEO', url: 'https://educaseo.com.br/' };
+const EDUCASEO = { nome: 'Educa', url: 'https://educaseo.com.br/' };
 
 export const palestras: PalestraItem[] = [
+  {
+    id: 'bate-papo-gestao-de-conteudo',
+    titulo: 'CRO multidisciplinar: SEO, UX Writing e experimentação',
+    tipo: 'Bate-papo',
+    tema: 'CRO, SEO e UX Writing',
+    dataISO: '2026-11',
+    dataTexto: 'Novembro de 2026',
+    formato: 'online',
+    localTexto: 'Online (bate-papo gravado)',
+    eventoTexto: 'Comunidade Gestão de Conteúdo',
+    organizador: { nome: 'Gestão de Conteúdo', url: 'https://br.linkedin.com/school/gestao-de-conteudo/' },
+    descricao: 'Conversa sobre CRO como área multidisciplinar, ao lado de SEO e UX Writing: o peso da usabilidade e da escrita para interfaces nos processos de experimentação, e por que um teste serve para aprender, não para provar que se está certo.',
+    coautoras: [{ nome: 'Duda Razzera', linkedin: 'https://www.linkedin.com/in/dudarazzera' }],
+    publicacao: {
+      href: 'https://www.linkedin.com/posts/alinejulio_tive-a-honra-de-retornar-%C3%A0-comunidade-gest%C3%A3o-activity-7526335670827610112-rc9B',
+      rotulo: 'Ver post no LinkedIn',
+    },
+    publico: true,
+  },
   {
     id: 'da-metrica-a-hipotese',
     titulo: 'Da Métrica à Hipótese: Transformando um Dado de Analytics em Teste A/B',
@@ -97,9 +116,9 @@ export const palestras: PalestraItem[] = [
     dataISO: '2026-03-06',
     dataTexto: '6 de março de 2026',
     formato: 'presencial',
-    localTexto: 'Presencial, sede da EducaSEO',
-    lugar: { nome: 'Sede da EducaSEO' },
-    eventoTexto: 'Encontro Mulheres do SEO, EducaSEO',
+    localTexto: 'Presencial, sede da Educa',
+    lugar: { nome: 'Sede da Educa' },
+    eventoTexto: 'Encontro Mulheres do SEO, Educa',
     organizador: EDUCASEO,
     superEvento: { nome: 'Mulheres do SEO' },
     descricao: 'Conversa sobre carreira, desafios e a evolução do mercado de SEO e CRO.',
@@ -109,7 +128,7 @@ export const palestras: PalestraItem[] = [
     ],
     publicacao: {
       href: 'https://www.linkedin.com/feed/update/urn:li:activity:7436849099129389057/',
-      rotulo: 'Ver post da EducaSEO',
+      rotulo: 'Ver post da Educa',
     },
     publico: true,
   },
@@ -122,7 +141,7 @@ export const palestras: PalestraItem[] = [
     dataTexto: 'Janeiro de 2026',
     formato: 'online',
     localTexto: 'Online (aula gravada)',
-    eventoTexto: 'EducaSEO',
+    eventoTexto: 'Educa',
     organizador: EDUCASEO,
     descricao: 'Card Sorting na prática para entender o modelo mental do usuário na organização de conteúdo, com estudo de caso de reestruturação de taxonomia de blog.',
     publico: true,
@@ -136,7 +155,7 @@ export const palestras: PalestraItem[] = [
     dataTexto: 'Dezembro de 2025',
     formato: 'online',
     localTexto: 'Online (aula ao vivo)',
-    eventoTexto: 'EducaSEO',
+    eventoTexto: 'Educa',
     organizador: EDUCASEO,
     descricao: 'Aula ao vivo sobre o Triângulo da Conversão (SEO, UX e CRO) e vieses cognitivos aplicados à conversão: efeito halo, viés de confirmação, prova social e ancoragem.',
     publico: true,
@@ -167,9 +186,29 @@ export const palestras: PalestraItem[] = [
     dataTexto: 'Outubro de 2025',
     formato: 'online',
     localTexto: 'Online (aula gravada)',
-    eventoTexto: 'EducaSEO',
+    eventoTexto: 'Educa',
     organizador: EDUCASEO,
     descricao: 'Como escrever CTAs que convertem: verbos de ação diretos, contexto de funil, frameworks de copywriting (FAB, PAS, BAB, AIDA, 4Us) e uso ético de gatilhos mentais.',
     publico: true,
   },
 ];
+
+// Docência já confirmada para o próximo ano, exibida à parte em /palestras/
+// (não entra no histórico nem no JSON-LD de eventos).
+export const docenciaProxima = {
+  ano: '2027',
+  curso: 'MBA em CRO, Analytics, IA e Product Marketing',
+  instituicao: EDUCASEO,
+  modulos: [
+    {
+      codigo: 'M1',
+      titulo: 'Fundamentos de CRO, Pesquisa e Experimentação',
+      texto: 'O ciclo entre dado, hipótese e teste, na mesma linha da oficina “Da métrica à hipótese”.',
+    },
+    {
+      codigo: 'M5',
+      titulo: 'Otimização de Páginas, Copy e Oferta',
+      texto: 'Copy, microcopy e SEO aplicados à otimização de páginas reais.',
+    },
+  ],
+};

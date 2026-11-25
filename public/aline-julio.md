@@ -18,7 +18,7 @@ Atuo na interseção entre Otimização de Taxa de Conversão (CRO), UX Writing 
 ## Trajetória
 
 - **Direcional Engenharia** (2025 até hoje): Analista de UX e CRO.
-- **EducaSEO** (2025 até hoje): Professora especialista convidada do MBA em CRO.
+- **Educa** (2025 até hoje): Professora especialista convidada do MBA em CRO.
 - **Cruzeiro do Sul Educacional** (2023 a 2025): Analista de conteúdo em UX e SEO (2024 a 2025); Analista de conteúdo em CRM (2023 a 2024).
 - **Aline Julio Comunicação Digital** (2022): Analista de conteúdo SEO.
 - **Studio Visual** (2019 a 2023): Analista de conteúdo em UX e SEO (2019 a 2023); Redatora (2019).
@@ -34,7 +34,8 @@ Atuo na interseção entre Otimização de Taxa de Conversão (CRO), UX Writing 
 ## Docência, palestras e mentorias
 
 - **SEOcamp:** palestras sobre CRO, testes A/B e experiência do usuário (3ª e 4ª edições).
-- **EducaSEO:** aulas sobre UX Writing, Call to Action, Card Sorting e Psicologia da Conversão, e o encontro Mulheres do SEO.
+- **Educa:** aulas sobre UX Writing, Call to Action, Card Sorting e Psicologia da Conversão, e o encontro Mulheres do SEO. Em 2027, docente dos módulos M1 (Fundamentos de CRO, Pesquisa e Experimentação) e M5 (Otimização de Páginas, Copy e Oferta) do MBA em CRO, Analytics, IA e Product Marketing.
+- **Comunidade Gestão de Conteúdo:** bate-papo gravado com Duda Razzera sobre CRO, SEO e UX Writing na experimentação (novembro de 2026).
 - **Mentorias particulares:** Fundamentos de UX Writing e Arquitetura da Informação.
 
 Histórico completo, com materiais para download quando disponíveis: [alinejulio.com/palestras/](https://alinejulio.com/palestras/)
@@ -45,7 +46,7 @@ Histórico completo, com materiais para download quando disponíveis: [alinejuli
 - Sobre: https://alinejulio.com/sobre/
 - Palestras e aulas: https://alinejulio.com/palestras/
 - LinkedIn: https://www.linkedin.com/in/alinejulio
-- EducaSEO: https://educaseo.com.br/professor/aline-julio/
+- Educa: https://educaseo.com.br/professor/aline-julio/
 - Instagram: https://www.instagram.com/_alinejulios/ (@_alinejulios)
 - X: https://x.com/_alinejulios (@_alinejulios)
 - SEOcamp São Paulo, março de 2026: https://seocamp.com.br/edicao/sao-paulo-27-marco-2026/
