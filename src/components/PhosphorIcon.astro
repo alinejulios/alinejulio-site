@@ -28,6 +28,8 @@ import searchRegular from '@phosphor-icons/core/assets/regular/magnifying-glass.
 import searchBold from '@phosphor-icons/core/assets/bold/magnifying-glass-bold.svg?raw';
 import chatRegular from '@phosphor-icons/core/assets/regular/chat-teardrop-text.svg?raw';
 import chatBold from '@phosphor-icons/core/assets/bold/chat-teardrop-text-bold.svg?raw';
+import copyRegular from '@phosphor-icons/core/assets/regular/copy.svg?raw';
+import copyBold from '@phosphor-icons/core/assets/bold/copy-bold.svg?raw';
 
 const icons = {
   'list': { regular: listRegular, bold: listBold },
@@ -43,6 +45,7 @@ const icons = {
   'chart-line-up': { regular: chartRegular, bold: chartBold },
   'magnifying-glass': { regular: searchRegular, bold: searchBold },
   'chat-teardrop-text': { regular: chatRegular, bold: chatBold },
+  'copy': { regular: copyRegular, bold: copyBold },
 } as const;
 
 type IconName = keyof typeof icons;

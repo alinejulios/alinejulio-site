@@ -18,15 +18,18 @@ Atuo na interseção entre Otimização de Taxa de Conversão (CRO), UX Writing 
 ## Trajetória
 
 - **Direcional Engenharia** (2025 até hoje): Analista de UX e CRO.
-- **EducaSEO** (2025 até hoje): Professora especialista.
+- **EducaSEO** (2025 até hoje): Professora especialista convidada do MBA em CRO.
 - **Cruzeiro do Sul Educacional** (2023 a 2025): Analista de conteúdo em UX e SEO (2024 a 2025); Analista de conteúdo em CRM (2023 a 2024).
-- **Studio Visual** (2019 a 2023): Analista de conteúdo em UX e SEO (2019 a 2023); Redatora estagiária (2019).
+- **Aline Julio Comunicação Digital** (2022): Analista de conteúdo SEO.
+- **Studio Visual** (2019 a 2023): Analista de conteúdo em UX e SEO (2019 a 2023); Redatora (2019).
 
 ## Formação
 
+- Extensão em Inteligência Artificial Aplicada ao Marketing Digital e Estratégico, Faculdade Pecege (2026).
 - CST em Design de Experiência, Universidade Cruzeiro do Sul (2024 a 2025).
-- MBA em Marketing Estratégico, Universidade Anhembi Morumbi (2022 a 2023).
+- Pós-graduação (MBA) em Marketing Estratégico, Universidade Anhembi Morumbi (2022 a 2023).
 - Bacharelado em Jornalismo, Universidade Cruzeiro do Sul (2017 a 2021).
+- Ensino técnico integrado em Administração, ETEC (2014 a 2016).
 
 ## Docência, palestras e mentorias
 

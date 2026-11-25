@@ -9,6 +9,7 @@ import PhosphorIcon from '../components/PhosphorIcon.astro';
 import { profilePageNode } from '../data/schema';
 import { DESCRICAO_3A_PESSOA, TITULO_PROFISSIONAL } from '../data/site';
 import { CTA } from '../data/contato';
+import { palestras } from '../data/palestras';
 
 // Padrão dos cargos: só a primeira letra maiúscula (exceto siglas), mais recente
 // primeiro, como no LinkedIn. Com mais de um cargo na mesma organização, cada
@@ -24,7 +25,7 @@ const experiencia = [
     periodo: '2025 até hoje',
     org: 'EducaSEO',
     url: 'https://educaseo.com.br/',
-    funcoes: ['Professora especialista'],
+    funcoes: ['Professora especialista convidada do MBA em CRO'],
   },
   {
     periodo: '2023 a 2025',
@@ -33,14 +34,24 @@ const experiencia = [
     funcoes: ['Analista de conteúdo em UX e SEO (2024 a 2025)', 'Analista de conteúdo em CRM (2023 a 2024)'],
   },
   {
+    periodo: '2022',
+    org: 'Aline Julio Comunicação Digital',
+    funcoes: ['Analista de conteúdo SEO'],
+  },
+  {
     periodo: '2019 a 2023',
     org: 'Studio Visual',
     url: 'https://studiovisual.com.br/',
-    funcoes: ['Analista de conteúdo em UX e SEO (2019 a 2023)', 'Redatora estagiária (2019)'],
+    funcoes: ['Analista de conteúdo em UX e SEO (2019 a 2023)', 'Redatora (2019)'],
   },
 ];
 
 const formacao = [
+  {
+    periodo: '2026',
+    org: 'Faculdade Pecege',
+    funcoes: ['Extensão em Inteligência Artificial Aplicada ao Marketing Digital e Estratégico'],
+  },
   {
     periodo: '2024 a 2025',
     org: 'Universidade Cruzeiro do Sul',
@@ -51,7 +62,7 @@ const formacao = [
     periodo: '2022 a 2023',
     org: 'Universidade Anhembi Morumbi',
     url: 'https://portal.anhembi.br/',
-    funcoes: ['MBA em Marketing Estratégico'],
+    funcoes: ['Pós-graduação (MBA) em Marketing Estratégico'],
   },
   {
     periodo: '2017 a 2021',
@@ -59,11 +70,79 @@ const formacao = [
     url: 'https://www.cruzeirodosul.edu.br/',
     funcoes: ['Bacharelado em Jornalismo'],
   },
+  {
+    periodo: '2014 a 2016',
+    org: 'ETEC, Escola Técnica Estadual de São Paulo',
+    funcoes: ['Ensino técnico integrado em Administração'],
+  },
 ];
 
 const linhas = [
   { titulo: 'Experiência', itens: experiencia },
   { titulo: 'Formação', itens: formacao },
+];
+
+// Kit de palestrante: números derivados do histórico, para não desatualizar.
+const totalPalco = palestras.filter((p) => p.tipo === 'Palestra' || p.tipo === 'Workshop').length;
+const totalAulas = palestras.filter((p) => p.tipo === 'Aula' || p.tipo === 'Mentoria').length;
+const anoInicial = Math.min(...palestras.map((p) => Number(p.dataISO.slice(0, 4))));
+const numeros = [
+  { valor: String(totalPalco), rotulo: totalPalco === 1 ? 'palestra ou workshop em eventos' : 'palestras e workshops em eventos' },
+  { valor: String(totalAulas), rotulo: 'aulas e mentorias' },
+  { valor: `desde ${anoInicial}`, rotulo: 'ensinando CRO, UX Writing e SEO' },
+];
+
+const temas: { icone: 'chart-line-up' | 'chat-teardrop-text' | 'magnifying-glass'; titulo: string; texto: string }[] = [
+  { icone: 'chart-line-up', titulo: 'CRO e testes A/B', texto: 'Da métrica à hipótese, heurísticas, psicologia da conversão e o sucesso além do clique.' },
+  { icone: 'chat-teardrop-text', titulo: 'UX Writing', texto: 'Microcopy, CTAs que convertem, clareza e voz da marca nas interfaces.' },
+  { icone: 'magnifying-glass', titulo: 'SEO Semântico', texto: 'Entidades, E-E-A-T, intenção de busca, taxonomia e card sorting.' },
+];
+
+const formatos = [
+  { titulo: 'Palestra', texto: 'Para eventos e conferências, com estudos de caso reais. Presencial ou online.' },
+  { titulo: 'Workshop', texto: 'Oficina prática com exercícios, como o de transformar um dado de analytics em teste A/B.' },
+  { titulo: 'Aula', texto: 'Para cursos, escolas e universidades, ao vivo ou gravada.' },
+  { titulo: 'Mentoria', texto: 'Encontros online para pessoas ou equipes, montados a partir do desafio de quem participa.' },
+];
+
+// Bios oficiais em três tamanhos, do menor para o maior.
+const bios = [
+  {
+    id: 'bio-uma-linha',
+    titulo: 'Bio de uma linha',
+    uso: 'Para redes sociais ou crachá',
+    texto: 'CRO na Direcional Engenharia · Professora do MBA em CRO da Educa',
+  },
+  {
+    id: 'bio-curta',
+    titulo: 'Bio curta',
+    uso: 'Para card de professor (cerca de 330 caracteres)',
+    texto: 'Aline Julio é professora do MBA em CRO da Educa e é analista de UX e CRO na Direcional Engenharia. É pós-graduada em Marketing Estratégico e passou por empresas como Cruzeiro do Sul Educacional e Studio Visual. Desde 2019 une dados, SEO e conteúdo para transformar tráfego em conversão.',
+  },
+  {
+    id: 'bio-media',
+    titulo: 'Bio média',
+    uso: 'Para a página do curso ou do evento (cerca de 600 caracteres)',
+    texto: 'Aline Julio é professora do MBA em CRO da Educa e é analista de UX e CRO na Direcional Engenharia. É pós-graduada em Marketing Estratégico e especialista em otimização de conversão (CRO), Web Analytics, Content Design e UX Writing. Desde 2019 trabalha com análise de dados, SEO On-Page e gestão de conteúdo, com passagens por empresas como Cruzeiro do Sul Educacional e Studio Visual. Parte de uma ideia simples: trazer tráfego qualificado resolve só metade do problema. Também é palestrante e mentora de UX Writing, SEO Semântico e Estratégia de Conteúdo com foco em KPIs.',
+  },
+];
+
+// Fotos oficiais de divulgação, em JPG para servir em qualquer material.
+const fotosDivulgacao = [
+  {
+    href: '/images/divulgacao/aline-julio-foto-perfil.jpg',
+    thumb: '/images/sobre/divulgacao-foto-perfil-thumb.jpg',
+    alt: 'Foto de perfil de Aline Julio sorrindo, de óculos e blusa preta, diante de um fundo branco',
+    rotulo: 'Baixar foto de perfil',
+    detalhe: 'JPG, 2000 × 2000 px, 350 KB',
+  },
+  {
+    href: '/images/divulgacao/aline-julio-palco.jpg',
+    thumb: '/images/sobre/divulgacao-palco-thumb.jpg',
+    alt: 'Aline Julio palestrando no palco do SEOcamp diante do slide “O que é sucesso em CRO?”',
+    rotulo: 'Baixar foto de palco',
+    detalhe: 'JPG, 800 × 800 px, 126 KB',
+  },
 ];
 
 const fotos = [
@@ -100,7 +179,7 @@ const fotos = [
           <!-- Fotos já com a moldura do balão aplicada na arte (pessoa na frente do traço) -->
           <img
             src="/images/aline-headshot.webp"
-            alt="Retrato de Aline Julio"
+            alt="Foto de perfil de Aline Julio"
             width="500"
             height="500"
             loading="eager"
@@ -177,44 +256,123 @@ const fotos = [
     </div>
   </section>
 
-  <!-- DOCÊNCIA -->
-  <section class="bg-white py-16 md:py-20">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-brand-black">Docência, mentorias e palestras</h2>
-      <p class="mb-6 text-base leading-relaxed text-brand-gray-700">
-        Acredito na troca ativa e no compartilhamento prático de conhecimento. Atuo como <strong>professora, palestrante e mentora</strong> em eventos, empresas e iniciativas do setor, com formações práticas em:
+  <!-- KIT DE PALESTRANTE -->
+  <section id="kit-palestrante" class="scroll-mt-28 bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-5xl space-y-14 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <SectionLabel tone="white" class="mb-3">Para organizadores</SectionLabel>
+        <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-brand-black">Palestras, aulas e mentorias</h2>
+        <p class="text-lg leading-relaxed text-brand-gray-700">
+          Levo para o palco e para a sala de aula o que aplico no dia a dia: dados de analytics, testes e escrita para interfaces. Aqui está o que você precisa para divulgar ou fazer um convite.
+        </p>
+      </div>
+
+      <!-- Números (calculados a partir de src/data/palestras.ts) -->
+      <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {numeros.map((n) => (
+          <div class="card flex flex-col p-6">
+            <dt class="order-2 mt-1 text-sm text-brand-gray-700">{n.rotulo}</dt>
+            <dd class="order-1 text-4xl font-extrabold tracking-tight text-brand-red">{n.valor}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="-mt-8 text-sm text-brand-gray-700">
+        Já passei por <strong>SEOcamp</strong> (São Paulo e edição online), <strong>EducaSEO</strong> e o encontro <strong>Mulheres do SEO</strong>.
       </p>
 
-      <div class="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div class="card flex items-start gap-3 p-4">
-          <PhosphorIcon name="chat-teardrop-text" size={24} class="mt-0.5 text-brand-red" />
-          <div>
-            <h3 class="text-base font-bold text-brand-black">UX Writing</h3>
-            <p class="mt-1 text-sm text-brand-gray-700">Microcopy, clareza e testes com usuários.</p>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3 p-4">
-          <PhosphorIcon name="magnifying-glass" size={24} class="mt-0.5 text-brand-red" />
-          <div>
-            <h3 class="text-base font-bold text-brand-black">SEO Semântico</h3>
-            <p class="mt-1 text-sm text-brand-gray-700">Entidades, E-E-A-T e intenção de busca.</p>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3 p-4">
-          <PhosphorIcon name="chart-line-up" size={24} class="mt-0.5 text-brand-red" />
-          <div>
-            <h3 class="text-base font-bold text-brand-black">CRO</h3>
-            <p class="mt-1 text-sm text-brand-gray-700">Testes A/B, heurísticas e otimização de conversão.</p>
-          </div>
+      <!-- Temas e formatos -->
+      <div>
+        <h3 class="mb-6 text-xl font-extrabold tracking-tight text-brand-black">Temas</h3>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {temas.map((t) => (
+            <div class="card flex items-start gap-3 p-5">
+              <PhosphorIcon name={t.icone} size={24} class="mt-0.5 shrink-0 text-brand-red" />
+              <div>
+                <h4 class="text-base font-bold text-brand-black">{t.titulo}</h4>
+                <p class="mt-1 text-sm leading-relaxed text-brand-gray-700">{t.texto}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <a href="/palestras/" class="btn btn-secondary">
-        <span>Ver palestras e aulas</span>
-        <PhosphorIcon name="arrow-right" size={20} />
-      </a>
+      <div>
+        <h3 class="mb-6 text-xl font-extrabold tracking-tight text-brand-black">Formatos</h3>
+        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {formatos.map((f) => (
+            <li class="border-l-2 border-brand-red pl-4">
+              <p class="text-base font-bold text-brand-black">{f.titulo}</p>
+              <p class="mt-1 text-sm leading-relaxed text-brand-gray-700">{f.texto}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Mentoria -->
+      <div class="card p-6 md:p-8">
+        <span class="badge badge-red mb-4">Mentoria</span>
+        <h3 class="mb-3 text-xl font-extrabold tracking-tight text-brand-black">Mentoria em UX Writing e Arquitetura da Informação</h3>
+        <p class="mb-4 text-base leading-relaxed text-brand-gray-700">
+          Para profissionais e equipes de conteúdo, marketing e produto que querem escrever interfaces mais claras e organizar sites que o usuário e o Google entendem. São encontros online e práticos, com exercícios sobre o material de quem participa.
+        </p>
+        <ul class="list-disc space-y-2 pl-5 text-base leading-relaxed text-brand-gray-700">
+          <li><strong>Encontro 1, UX Writing:</strong> microcopy, clareza, testes de usabilidade de copy e voz da marca.</li>
+          <li><strong>Encontro 2, Arquitetura da Informação e SEO Semântico:</strong> hierarquia, taxonomia, URLs, breadcrumbs, entidades e intenção de busca.</li>
+        </ul>
+      </div>
+
+      <!-- Bios prontas -->
+      <div>
+        <h3 class="mb-2 text-xl font-extrabold tracking-tight text-brand-black">Bios para divulgação</h3>
+        <p class="mb-6 text-sm text-brand-gray-700">Use no material do evento sem pedir aprovação.</p>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+          {bios.map((b) => (
+            <div class="card flex flex-col p-6">
+              <h4 class="text-base font-bold text-brand-black">{b.titulo}</h4>
+              <p class="mb-3 text-sm text-brand-gray-700">{b.uso}</p>
+              <p id={b.id} class="mb-5 grow text-sm leading-relaxed text-brand-gray-700">{b.texto}</p>
+              <button type="button" data-copiar={b.id} class="btn btn-secondary self-start px-4 text-sm">
+                <PhosphorIcon name="copy" size={20} />
+                <span data-rotulo aria-live="polite">Copiar {b.titulo.toLowerCase()}</span>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Fotos -->
+      <div>
+        <h3 class="mb-6 text-xl font-extrabold tracking-tight text-brand-black">Fotos para divulgação</h3>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {fotosDivulgacao.map((f) => (
+            <figure class="card flex items-center gap-4 p-4">
+              <img src={f.thumb} alt={f.alt} width="256" height="256" loading="lazy" class="aspect-square w-24 shrink-0 object-cover sm:w-28" />
+              <figcaption class="flex flex-col items-start gap-2">
+                <span class="text-sm text-brand-gray-700">{f.detalhe}</span>
+                <a href={f.href} download class="btn btn-secondary px-4 text-sm">
+                  <PhosphorIcon name="download-simple" size={20} />
+                  <span>{f.rotulo}</span>
+                </a>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 border-t border-brand-gray-300 pt-8">
+        <a href={CTA.palestra.href} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>{CTA.palestra.label}</span>
+          <PhosphorIcon name="arrow-up-right" size={20} />
+          <span class="sr-only"> (abre em nova aba)</span>
+        </a>
+        <a href="/palestras/" class="btn btn-secondary">
+          <span>Ver histórico completo</span>
+          <PhosphorIcon name="arrow-right" size={20} />
+        </a>
+      </div>
     </div>
   </section>
+  <script is:inline src="/scripts/copiar-bio.js" defer></script>
 
   <CTABlock title="Vamos conversar?" primary={CTA.palestra} secondary={CTA.linkedin}>
     Fale comigo sobre consultoria ou convites para palestras, aulas e mentorias.
